@@ -1,0 +1,49 @@
+:root {
+    --amarelo: #F2EFBD;
+    --roxo: #401234;
+    --rosa: #BE399B;
+    --laranja-claro: #F2C46D;
+    --laranja-escuro: #F09D6C;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: 600;
+}
+
+.amarelo {
+    background-color: var(--amarelo);
+    color: var(--roxo);
+}
+
+.roxo {
+    background-color: #401234;
+    color: var(--amarelo);
+}
+
+.rosa {
+    background-color: #BE399B;
+    color: var(--amarelo);
+}
+
+.laranja-claro {
+    background-color: #F2C46D;
+    color: var(--roxo);
+}
+
+.laranja-escuro {
+    background-color: var(--laranja-escuro);
+    color: var(--roxo);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.borda-pixel {
+    border: 50px solid transparent;
+    border-image: url('../imagens/borda-pixel.png') 50 fill;
+}
