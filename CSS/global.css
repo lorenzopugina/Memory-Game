@@ -14,6 +14,11 @@
     font-weight: 600;
 }
 
+body{
+    overflow: hidden;
+    background-color: var(--amarelo);
+}
+
 .amarelo {
     background-color: var(--amarelo);
     color: var(--roxo);
@@ -47,3 +52,60 @@ h1, h2, h3, h4, h5, h6 {
     border: 50px solid transparent;
     border-image: url('../imagens/borda-pixel.png') 50 fill;
 }
+
+/* Animação das nuvens */
+
+@keyframes moverNuvem1 {
+  0%   { transform: translateX(-10vw); }
+  100% { transform: translateX(110vw); }
+}
+
+@keyframes moverNuvem2 {
+  0%   { transform: translateX(-70vw); }
+  100% { transform: translateX(120vw); }
+}
+
+@keyframes moverNuvem3 {
+  0%   { transform: translateX(-30vw); }
+  100% { transform: translateX(100vw); }
+}
+
+.nuvem {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.nuvem1 {
+  position: absolute;
+  top: 20vh;
+  left: 0;
+  width: 250px;
+  pointer-events: none; /* evita as nuvens atrapalhar o clique */
+  opacity: 0.5;         
+  z-index: -1;
+  animation: moverNuvem1 40s linear infinite;
+}
+
+.nuvem2 {
+  position: absolute;
+  top: 50vh;
+  left: 0;
+  width: 500px;
+  animation: moverNuvem2 60s linear infinite;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.nuvem3 {
+  position: absolute;
+  top: 80vh;
+  left: 0;
+  width: 300px;
+  animation: moverNuvem3 50s linear infinite;
+  opacity: 0.5;
+  z-index: -1;
+}
+/* fim do css Animação das nuvens */
+
+

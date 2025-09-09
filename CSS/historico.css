@@ -1,0 +1,41 @@
+#titulo {
+  text-align: center;
+  margin-bottom: -5%;
+  font-size: clamp(2rem, 8vw, 6rem);
+}
+
+
+.background{
+    margin: 10% auto 0 auto;
+    display: flex;
+    height: 60vh;
+    width: 80vw;
+    border-radius: 5%;
+}
+
+.historico{
+    background-color: beige;
+    height: 10vh;
+    width: 20vw;
+    border: solid 1px black;
+    border-radius: 15%;
+    display: flex;
+    margin: -3% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(.5rem, 2.5vw, 2rem);
+}
+
+#voltar{
+    height: 5vh;
+    width: 10vw;
+    float: right;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: -2% 15% 0 0;
+    border-radius: 5%;
+    text-decoration: none;
+    font-size: 25px;
+}
