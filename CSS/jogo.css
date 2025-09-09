@@ -1,0 +1,88 @@
+@font-face {
+    font-family: Titulo;
+    src: url(../Fontes/prstartk.ttf);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #f29e6d;
+    }
+
+    to {
+        text-shadow: 0 0 10px #f29e6d; 
+    }
+}
+
+@keyframes moverNuvem1 {
+  0%   { transform: translateX(50vw); }
+  50%   { transform: translateX(120vw); }
+  51%   { transform: translateY(-200vw); }
+  52% { transform: translateX(-20vw);}
+  100% { transform: translateX(50vw);}
+}
+
+@keyframes moverNuvem2 {
+  0%   { transform: translateX(0vw); }
+  50%   { transform: translateX(-80vw); }
+  50.001%   { transform: translateY(100vw); }
+  50.002% { transform: translateX(80vw);}
+  100% { transform: translateX(0vw);}
+}
+
+@keyframes moverNuvem3 {
+  0%   { transform: translateX(0vw); }
+  50%   { transform: translateX(80vw); }
+  50.001%   { transform: translateY(-100vw); }
+  50.002% { transform: translateX(-80vw);}
+  100% { transform: translateX(0vw);}
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #f1eebc;
+    height: 100vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.nuvem {
+    display: flex;
+    opacity: 0.5;
+    height: 100vh;
+    width: 100vw;
+}
+
+.nuvem1 {
+    position: absolute;
+    width: 250px;
+    padding-top: 20px;
+    animation: moverNuvem1 40s linear infinite;
+}
+
+.nuvem2 {
+    position: absolute;
+    width: 500px;
+    padding-top: 200px;
+    padding-left: 700px;
+    animation: moverNuvem2 40s linear infinite;
+}
+
+.nuvem3 {
+    position: absolute;
+    width: 300px;  
+    padding-top: 400px;
+    padding-left: 300px;
+    animation: moverNuvem3 30s linear infinite;
+}
+
+header h1 {
+    text-align: center;
+    background-color: #401234;
+    color: #f29e6d;
+    font-family: Titulo;
+    padding: 20px;
+    animation: glow 1s infinite alternate;
+}
