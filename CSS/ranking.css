@@ -1,0 +1,98 @@
+@keyframes glow { 
+  from { text-shadow: 0 0 5px #f29e6d; } 
+  to { text-shadow: 0 0 10px #f29e6d; } 
+}
+
+h1 {
+    font-size: 40px; 
+    color: #f29e6d; 
+    animation: glow 1s infinite alternate;
+    padding: 25px;
+}
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p {
+    position: absolute;
+    left: 45%;
+    bottom:7px;
+    opacity: 0.6;
+    letter-spacing: 5px;
+}
+
+#img1 {
+    width: 50px;
+    margin: 9px;
+    filter: invert(100%); 
+    opacity: 0.6;
+    image-rendering: pixelated;
+}
+
+#img2 {
+    width: 40px;
+    margin: 10px;
+    filter: invert(100%);
+    opacity: 0.3; 
+    image-rendering: pixelated;
+}
+
+.background{
+    margin: 5% auto 0 auto;
+    display: flex;
+    height: 70vh;
+    width: 80vw;
+    border-radius: 5%;
+}
+
+.historico{
+    background-color: beige;
+    height: 10vh;
+    width: 20vw;
+    border: solid 1px black;
+    border-radius: 15%;
+    display: flex;
+    margin: -3% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(.5rem, 2.5vw, 2rem);
+}
+
+.cabecalho {
+    display:flex;
+    height: 10vh;
+    width: 80vw; /* nao sei se isso ta certo, queria que ficasse de acordo com tamanho da div */
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0.1%;
+    margin: 0;
+    text-align: center;
+}
+
+ul li {
+    display: inline;
+    margin: 40px;
+}
+
+#voltar{
+    height: 5vh;
+    width: 10vw;
+    float: right;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: -2% 15% 0 0;
+    border-radius: 5%;
+    text-decoration: none;
+    font-size: 25px;
+}
+
