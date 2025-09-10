@@ -1,0 +1,132 @@
+@keyframes glow { 
+  from { text-shadow: 0 0 5px #f29e6d; } 
+  to { text-shadow: 0 0 10px #f29e6d; } 
+}
+
+
+h1 {
+    font-size: 40px; 
+    color: #f29e6d; 
+    animation: glow 1s infinite alternate;
+    padding: 25px;
+}
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header p{
+    position: absolute;
+    left: 47%;
+    bottom:7px;
+    opacity: 0.6;
+    letter-spacing: 5px;
+}
+
+#img1 {
+    width: 50px;
+    margin: 9px;
+    filter: invert(100%); 
+    opacity: 0.6;
+    image-rendering: pixelated;
+}
+
+#img2 {
+    width: 40px;
+    margin: 10px;
+    filter: invert(100%);
+    opacity: 0.3; 
+    image-rendering: pixelated;
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.jogo_tela {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    width: 410px;
+    height: 410px;    
+    justify-content: center;
+    align-items: center;
+    background-color: #401234;  
+    margin-bottom: 100px;
+      box-shadow:
+    0 17px 0 -10px #401234,
+    17px 0 0 -10px #401234,
+    -17px 0 0 -10px #401234,
+    0 -17px 0 -10px #401234, 
+    0 17px 0 -5px #000000,
+    17px 0 0 -5px #000000,
+    -17px 0 0 -5px #000000,
+    0 -17px 0 -5px #000000,  
+    0 0px 0 5px #000000; 
+    z-index: 2;
+
+}
+
+.pecas {
+    background-color: #f29e6d;
+    width: 70px;
+    height: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow:
+    0 10px 0 -5px #cf875d,
+    10px 0 0 -5px  #cf875d,
+    -10px 0 0 -5px  #cf875d,
+    0 -10px 0 -5px  #cf875d;
+}
+
+.desistir {
+    position: absolute;
+    background-color: #97141d;
+    padding: 5px;
+    border: 10px solid #401234;
+    bottom: 200px;
+    left: 400px;
+    box-shadow:
+    0 8px 0 -5px #401234,
+    8px 0 0 -5px  #401234,
+    -8px 0 0 -5px  #401234,
+    0 -8px 0 -5px  #401234;
+}
+
+.desistir a {
+    text-decoration: none;
+    color: #F2EFBD;
+}
+
+.movimentos {
+    position: absolute;
+    color:#401234;
+    top: 75px;
+    right: 570px;
+}
+
+.tempo {
+    position: absolute;
+    color:#F2EFBD;
+    background-color: #BE399B;
+    padding: 8px;
+    top: 68px;
+    left: 568px;
+    z-index: 1;
+}
+
+.trapaca {
+    position: absolute;
+    color: #401234;
+    bottom: 95px;
+    right: 15px;
+}
