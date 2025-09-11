@@ -51,7 +51,19 @@ main {
     position: relative;
 }
 
-.jogo_tela {
+.jogo-tela {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0;
+    flex-wrap: wrap;
+    width: 410px;
+    height: 100%;    
+    justify-content: flex-start;
+    align-items: center; 
+}
+
+.campo {
     display: flex;
     padding: 0;
     flex-wrap: wrap;
@@ -60,32 +72,31 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #401234;  
-    margin-bottom: 100px;
-      box-shadow:
-    0 17px 0 -10px #401234,
-    17px 0 0 -10px #401234,
-    -17px 0 0 -10px #401234,
-    0 -17px 0 -10px #401234, 
-    0 17px 0 -5px #000000,
-    17px 0 0 -5px #000000,
-    -17px 0 0 -5px #000000,
-    0 -17px 0 -5px #000000,  
-    0 0px 0 5px #000000; 
+    box-shadow:
+    0 1rem 0 -0.625rem #401234,
+    1rem 0 0 -0.625rem #401234,
+    -1rem 0 0 -0.625rem #401234,
+    0 -1rem 0 -0.625rem #401234, 
+    0 1rem 0 -0.3125rem #000000,
+    1rem 0 0 -0.3125rem #000000,
+    -1rem 0 0 -0.3125rem #000000,
+    0 -1rem 0 -0.3125rem #000000,  
+    0 0px 0 0.3125rem #000000; 
     z-index: 2;
 
 }
 
 .pecas {
     background-color: #f29e6d;
-    width: 70px;
-    height: 70px;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 17.07%;
+    height: 17.07%;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
     box-shadow:
-    0 10px 0 -5px #cf875d,
-    10px 0 0 -5px  #cf875d,
-    -10px 0 0 -5px  #cf875d,
-    0 -10px 0 -5px  #cf875d;
+    0 0.625rem 0 -0.3125rem #cf875d,
+    0.625rem 0 0 -0.3125rem  #cf875d,
+    -0.625rem 0 0 -0.3125rem  #cf875d,
+    0 -0.625rem 0 -0.3125rem  #cf875d;
 }
 
 .desistir {
@@ -93,13 +104,13 @@ main {
     background-color: #97141d;
     padding: 5px;
     border: 10px solid #401234;
-    bottom: 200px;
-    left: 400px;
+    bottom: 27.5%;
+    left: -30%;
     box-shadow:
-    0 8px 0 -5px #401234,
-    8px 0 0 -5px  #401234,
-    -8px 0 0 -5px  #401234,
-    0 -8px 0 -5px  #401234;
+    0 0.5rem 0 -0.3125rem #401234,
+    0.5rem 0 0 -0.3125rem  #401234,
+    -0.5rem 0 0 -0.3125rem  #401234,
+    0 -0.5rem 0 -0.3125rem  #401234;
 }
 
 .desistir a {
@@ -107,20 +118,26 @@ main {
     color: #F2EFBD;
 }
 
+.topo {
+    display: flex;
+    margin-top: 9vh;
+    width: 410px;
+    height: 45px;
+    justify-items: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .movimentos {
-    position: absolute;
     color:#401234;
-    top: 75px;
-    right: 570px;
+    margin: 5px;
 }
 
 .tempo {
-    position: absolute;
     color:#F2EFBD;
     background-color: #BE399B;
     padding: 8px;
-    top: 68px;
-    left: 568px;
+    margin: 5px;
     z-index: 1;
 }
 
