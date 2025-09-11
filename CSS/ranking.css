@@ -91,6 +91,7 @@ header p {
   text-align: center;
   font-size: 1.2rem;
   padding: 0;
+  border-radius: 0;
 
   /* fixa no topo da div .tabela */
   position: sticky;
