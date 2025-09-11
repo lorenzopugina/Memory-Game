@@ -24,10 +24,14 @@
     font-weight: 600;
 }
 
-body{
+body {
     overflow: hidden;
-    background-color: var(--amarelo);
+    /* Degrade se quiser pode tirar */
+    background: linear-gradient(to bottom, var(--amarelo), var(--laranja-escuro));
+    margin: 0;
+    font-family: sans-serif;
 }
+
 
 .amarelo {
     background-color: var(--amarelo);
@@ -54,8 +58,12 @@ body{
     color: var(--roxo);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2{
     font-family: 'Press Start', cursive;
+}
+
+h3, h4, h5, h6 {
+    font-family: 'Pixelify Sans', sans-serif;
 }
 
 .borda-pixel {
