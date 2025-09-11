@@ -49,38 +49,68 @@ header p {
     border-radius: 5%;
 }
 
-.historico{
-    background-color: beige;
-    height: 10vh;
-    width: 20vw;
-    border: solid 1px black;
-    border-radius: 15%;
-    display: flex;
-    margin: -3% auto;
+.tabela {
+    display: grid;
+    gap: 1.5vh;
+    width: 90%;
+    margin: 5% auto;
+    font-size: 1.0rem;
+    overflow-y: auto; 
+    scrollbar-width: none; /* oculta barra de rolagem Firefox */
+    -ms-overflow-style: none; /* oculta rolagem Internet Explorer */
+}
+
+/* oculta rolagem Chrome, Edge, Safari */
+.tabela::-webkit-scrollbar {
+  display: none;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1.5fr 1fr 1fr 1fr; 
+  color: var(--amarelo);
+  padding: 5px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.linha div {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: clamp(.5rem, 2.5vw, 2rem);
+}
+
+.linha div img {
+    width: auto;
+    height: 48px;
+    vertical-align: middle;
 }
 
 .cabecalho {
-    display:flex;
-    height: 10vh;
-    width: 80vw; /* nao sei se isso ta certo, queria que ficasse de acordo com tamanho da div */
-    justify-content: center;
-    align-items: center;
+  background: var(--roxo); 
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0;
+  border-radius: 0;
+
+  /* fixa no topo da div .tabela */
+  position: sticky;
+  top: 0; 
 }
 
-ul {
-    list-style: none;
-    padding: 0.1%;
-    margin: 0;
-    text-align: center;
+.primeiro-lugar {
+    background-color: var(--laranja-claro);
+    font-size: 1.2rem;    
 }
 
-ul li {
-    display: inline;
-    margin: 40px;
+.segundo-lugar {
+    background-color: gray;
+    font-size: 1.2rem;
+}
+
+.terceiro-lugar {
+    background-color: #a05a4a;
+    font-size: 1.2rem;
 }
 
 #voltar{
