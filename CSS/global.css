@@ -26,6 +26,8 @@
 
 body {
     overflow: hidden;
+    height: 100vh;
+    width: 100vw;
     /* Degrade se quiser pode tirar */
     background: linear-gradient(to bottom, var(--amarelo), var(--laranja-escuro));
     margin: 0;
@@ -90,8 +92,6 @@ h3, h4, h5, h6 {
 
 .nuvem {
     display: flex;
-    height: 100vh;
-    width: 100vw;
 }
 
 .nuvem1 {
