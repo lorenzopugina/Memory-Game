@@ -1,0 +1,46 @@
+header {
+    display: flex;
+    flex-direction: column;     /* coloca h1, p e button em coluna */
+    justify-content: center;    /* centraliza no eixo principal (vertical) */
+    align-items: center;        /* centraliza no eixo cruzado (horizontal) */
+    text-align: center;         /* centraliza o texto */
+}
+
+header.laranja-claro {
+    min-width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+header p {
+
+}
+
+header button {
+    padding: 0.5%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
+
+header button:hover {
+    background-color: #F2EFBD;
+    color: #BE399B;
+}
+
+
+nav {
+    display: flex;
+    flex-direction: row;     /* coloca h1, p e button em coluna */
+    justify-content: center;    /* centraliza no eixo principal (vertical) */
+    align-items: center;        /* centraliza no eixo cruzado (horizontal) */
+    text-align: center;         /* centraliza o texto */
+}
+
+nav a {
+    margin-left: 6.5%;
+    margin-right: 6.5%;
+}
+
+nav a:hover{
+    color: #F09D6C;
+}

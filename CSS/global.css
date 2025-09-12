@@ -49,6 +49,10 @@ body {
     background-color: #BE399B;
     color: var(--amarelo);
 }
+/* inverso -> para usar nos botoes com :hover
+  background-color: F2EFBD;
+  color: #BE399B;
+*/
 
 .laranja-claro {
     background-color: #F2C46D;
