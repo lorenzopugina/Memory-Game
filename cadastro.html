@@ -24,23 +24,16 @@
 
     <main id="main-cadastro">
         <form class="roxo">
+            <a href="Index.html"><img src="imagens/return.png" alt="botão de retorno"></a>
             <h2>Cadastro</h2>
-
             <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
-
-            <input type="date" id="data_nascimento" name="data_nascimento" placeholder="Data de nascimento" required>
-
+            <input type="text" id="data_nascimento" onfocus="(this.type='date')" onblur="(this.type='text')" name="data_nascimento" placeholder="Data de nascimento" required>
             <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
-
             <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
-
             <input type="email" id="email" name="email" placeholder="Email" required>
-
-            <input type="text" id="username" name="username" placeholder="Username" required>
-
+            <input type="text" id="username" name="username" placeholder="Apelido" required>
             <input type="password" id="senha" name="senha" placeholder="Senha" required>
-
-            <button type="submit">Cadastrar</button>
+            <button type="submit" class="laranja-escuro">Cadastrar</button>
         </form>
     </main>
     </body>
