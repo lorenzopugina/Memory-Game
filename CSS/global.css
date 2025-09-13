@@ -24,6 +24,11 @@
     font-weight: 600;
 }
 
+a {
+  text-decoration: none;
+  color: var(--roxo);
+}
+
 body {
     overflow: hidden;
     height: 100vh;
