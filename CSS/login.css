@@ -30,9 +30,11 @@ header img {
     text-align: center;
 }
 
-#main-cadastro {
+#main-login {
     flex-grow: 1;
     display: flex;
+    flex-direction: column;
+    gap: 15px;
     justify-content: center;
     align-items: center;
 }
@@ -70,4 +72,22 @@ form a img {
     right: -30px;
     width: 70px;
     cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+}
+
+#cadastre-se {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#cadastre-se h3 {
+    color: var(--roxo);
+}
+
+#cadastre-se a:hover {
+    color: white;
 }
