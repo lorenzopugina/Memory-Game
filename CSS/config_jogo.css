@@ -1,48 +1,79 @@
-@import url('global.css');
+    @import url('global.css');
 
-.bloco_superior h1 {
-    display: flex;
-    flex-direction: column;     /* itens empilhados verticalmente */
-    justify-content: center;    /* centraliza verticalmente */
-    align-items: center;        /* centraliza horizontalmente */
-    text-align: center;         /* centraliza o texto */
-    color: var(--amarelo);
-    background-color: var(--rosa);
-    margin-top: 5vw;
-    margin-left: 40vw;
-    margin-right: 40vw;
-    font-size: 0.8rem;
-}
+    .bloco_superior h1 {
+        display: flex;
+        flex-direction: column;     /* itens empilhados verticalmente */
+        justify-content: center;    /* centraliza verticalmente */
+        align-items: center;        /* centraliza horizontalmente */
+        text-align: center;         /* centraliza o texto */
+        color: var(--amarelo);
+        background-color: var(--rosa);
+        margin-top: 5vw;
+        margin-left: 40vw;
+        margin-right: 40vw;
+        font-size: 20px; 
+        color: white;
+        margin-bottom:  15px;
 
-.bloco_config {
-    display: flex;
-    flex-direction: column;     /* itens empilhados verticalmente */
-    justify-content: center;    /* centraliza verticalmente */
-    align-items: center;        /* centraliza horizontalmente */
-    text-align: center;         /* centraliza o texto */
-    background-color: #401234;
-    margin-left: 35vw;
-    margin-right: 35vw;
-}
+        border: 2px solid var(--rosa); /* grossa, marrom e sólida */
+        border-radius: 15px; /* opcional: cantos arredondados */
+    }
 
-.bloco_config label {
-    color: white;
-    margin-top: 2vw;
-}
+    .bloco_config {
+        display: flex;
+        flex-direction: column;     /* itens empilhados verticalmente */
+        justify-content: center;    /* centraliza verticalmente */
+        align-items: center;        /* centraliza horizontalmente */
+        text-align: center;         /* centraliza o texto */
+        background-color: #401234;
+        margin-left: 37.5vw;
+        margin-right: 37.5vw;
+        box-shadow:
+            0 1rem 0 -0.625rem #401234,
+            1rem 0 0 -0.625rem #401234,
+            -1rem 0 0 -0.625rem #401234,
+            0 -1rem 0 -0.625rem #401234, 
+            0 1rem 0 -0.3125rem #000000,
+            1rem 0 0 -0.3125rem #000000,
+            -1rem 0 0 -0.3125rem #000000,
+            0 -1rem 0 -0.3125rem #000000,  
+            0 0px 0 0.3125rem #000000;
+    }
 
-.bloco_config #opcoes {
-    margin-bottom: 6vw;
-}
+    .bloco_config label {
+        color: white;
+        margin-top: 2vw;
+        font-size: 35px; 
+    }
 
-#opcoes {
-    background-color: var(--laranja-escuro);
-    padding-top: 12.5px;
-    padding-bottom: 12.5px;
-    padding-left: 50px;
-    padding-right: 50px;
-}
+    .bloco_config #opcoes {
+        margin-bottom: 4.5vw;
+        font-size: 20px; 
+    }
 
-button {
-    color: white;
-    background-color: green;
-}
+    #opcoes {
+        background-color: var(--laranja-escuro);
+        padding-top: 12.5px;
+        padding-bottom: 12.5px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    button {
+        background-color: green;
+
+        padding-top: 12.5px;
+        padding-bottom: 12.5px;
+        padding-left: 50px;
+        padding-right: 50px;
+
+        margin-bottom: 30px;
+
+        border: 15px solid var(--laranja-escuro); /* grossa, marrom e sólida */
+        border-radius: 15px; /* opcional: cantos arredondados */
+    }
+
+    button a {
+        color: white;
+        font-size: 20px; 
+    }
