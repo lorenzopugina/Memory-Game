@@ -1,61 +1,75 @@
-#titulo {
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
   text-align: center;
-  margin: 4% auto -5% auto;
-  font-size: clamp(1.5rem, 4.5vw, 4.5rem);
+}
+
+.header {
+  margin-top: 3%;
   color: #8e2e1f;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+}
+
+.header img {
+  height: clamp(70px, 16vh, 140px);
+  width: auto;
+}
+
+.header h1 {
+  margin-left: 4%;
 }
 
 .historico {
   background-color: beige;
-  height: 10vh;
-  width: 20%;
-  margin: 4% auto 0 auto;                
+  height: clamp(45px, 10vh, 60px);
+  width: 20vw;
+  margin: 0 auto;                
   border: solid 1px black;
   border-radius: 15px;
   font-size: clamp(.5rem, 3vw, 4rem);
-  position: relative;
-  top: 5vh;                      
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;                    
+  position: absolute;
+  top: clamp(100px, 19vh, 180px); 
+  left: 40vw;
 }
 
 .background {
-  margin: 0 auto;
+  margin: 1% auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
   height: 60vh;
   width: clamp(35rem, 60vw, 60rem);
   border-radius: 3%;
 }
 
-#username {
-    margin: 2% 0 0 5%;
-    font-size: 1.5rem;
+.username {
+  margin: 2% 0 0 5%;
+  font-size: 1.5rem;
 }
 
 .tabela {
   display: grid;
   gap: 1.5vh;
   width: 90%;
-  margin: 5% auto;
+  margin: 3% auto 5% auto;
   font-size: 1.1rem;
   overflow-y: auto; 
   scrollbar-width: none; /* oculta barra de rolagem Firefox */
-  -ms-overflow-style: none; /* oculta rolagem Internet Explorer */
+  -ms-overflow-style: none; /* oculta rolagem IE */
 }
 
-/* oculta rolagem Chrome, Edge, Safari */
+ /* oculta rolagem outros navs */
 .tabela::-webkit-scrollbar {
   display: none;
 }
 
 .linha {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-columns: repeat(5, 1fr); 
   background: #a05a4a;
   color: var(--amarelo);
   padding: 15px;
@@ -64,26 +78,37 @@
 
 .cabecalho {
   background: var(--roxo); 
-  text-align: center;
-
-  /* fixa no topo da div .tabela */
   position: sticky;
+  border-radius: 0;
+  padding-top: 0;
   top: 0; 
 }
 
-.linha div {
-  text-align: center;
+.voltar {
+  height: 2.5rem;
+  width: 7rem;
+  float: right;
+  margin: -2.5% 25% 0 0;
+  border-radius: 5%;
+  text-decoration: none;
+  font-size: 25px;
 }
 
-#voltar{
-    height: 5vh;
-    width: 10vw;
-    float: right;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    margin: -1.5% 25% 0 0;
-    border-radius: 5%;
-    text-decoration: none;
-    font-size: 25px;
+.voltar:hover {
+  background-color: var(--amarelo);
+  color: var(--rosa);
 }
+
+@media (max-width: 1000px) {
+  .historico {
+    top: clamp(80px, 20vh, 85px);  
+  }
+}
+
+@media (min-height: 600px) and (max-width: 1000px) {
+  .historico {
+    top: clamp(100px, 15vh, 300px);  
+  }
+}
+
+
