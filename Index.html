@@ -1,29 +1,35 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/index.css">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="CSS/global.css">
+    <link rel="stylesheet" href="CSS/index.css">
     <script src="Script/global.js"></script>
 </head>
 <body>
-    
-    <header class="laranja-claro">
-        <h1>Bem-vindo ao Jogo da Memória</h1>
-        <p>Teste sua memória com este divertido jogo!</p>
-        <button class="rosa"> <a href="config_jogo.html">Começar Jogo</a></button>
+    <header class="roxo">
+        <a href="Index.html"><img id="img1" src="imagens/profile_circle_icon_242774.png"></a>        
+        <div id="central-text">
+            <h1>Pixel Memory</h1>
+        </div>
+        <a href="ranking.html"><img id="img2" src="imagens/worldgrid_80392.png"></a>
     </header>
-
-
-    <nav>
-        <a href="cadastro.html">cadastro</a>
-        <a href="historico.html">historico</a>
-        <a href="jogo.html">jogo</a>
-        <a href="ranking.html">ranking</a>
-    </nav>
-
+    <main id="main-login">
+        <form class="roxo">
+            <h2>Login</h2>
+            <input type="text" id="username" name="username" placeholder="Apelido">
+            <input type="password" id="senha" name="senha" placeholder="Senha">
+            <a class="laranja-escuro" href="config_jogo.html">Entrar</a>
+        </form>
+        <div id="cadastre-se">
+            <h3>Você é novo aqui?</h3>
+            <a href="cadastro.html">Cadastre-se</a>
+        </div>
+    </main>
 </body>
 </html>
