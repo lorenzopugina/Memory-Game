@@ -46,7 +46,16 @@ header p {
     display: flex;
     height: 70vh;
     width: 80vw;
-    border-radius: 5%;
+    box-shadow:
+    0 1rem 0 -0.625rem #401234,
+    1rem 0 0 -0.625rem #401234,
+    -1rem 0 0 -0.625rem #401234,
+    0 -1rem 0 -0.625rem #401234, 
+    0 1rem 0 -0.3125rem #000000,
+    1rem 0 0 -0.3125rem #000000,
+    -1rem 0 0 -0.3125rem #000000,
+    0 -1rem 0 -0.3125rem #000000,  
+    0 0px 0 0.3125rem #000000; 
 }
 
 .tabela {

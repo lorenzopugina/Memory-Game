@@ -28,8 +28,11 @@
   height: clamp(45px, 10vh, 60px);
   width: 20vw;
   margin: 0 auto;                
-  border: solid 1px black;
-  border-radius: 15px;
+  box-shadow:
+    0 0.625rem 0 -0.3125rem beige,
+    0.625rem 0 0 -0.3125rem  beige,
+    -0.625rem 0 0 -0.3125rem  beige,
+    0 -0.625rem 0 -0.3125rem  beige;
   font-size: clamp(.5rem, 3vw, 4rem);
   position: absolute;
   top: clamp(100px, 19vh, 180px); 
@@ -43,7 +46,17 @@
   align-items: flex-start;
   height: 60vh;
   width: clamp(35rem, 60vw, 60rem);
-  border-radius: 3%;
+  box-shadow:
+    0 1rem 0 -0.625rem #401234,
+    1rem 0 0 -0.625rem #401234,
+    -1rem 0 0 -0.625rem #401234,
+    0 -1rem 0 -0.625rem #401234, 
+    0 1rem 0 -0.3125rem #000000,
+    1rem 0 0 -0.3125rem #000000,
+    -1rem 0 0 -0.3125rem #000000,
+    0 -1rem 0 -0.3125rem #000000,  
+    0 0px 0 0.3125rem #000000; 
+
 }
 
 .username {
