@@ -1,22 +1,71 @@
-    @import url('global.css');
+    @keyframes glow { 
+    from { text-shadow: 0 0 5px #f29e6d; } 
+    to { text-shadow: 0 0 10px #f29e6d; } 
+    }
 
-    .bloco_superior h1 {
+
+    h1 {
+        font-size: 40px; 
+        color: #f29e6d; 
+        animation: glow 1s infinite alternate;
+        padding: 25px;
+    }
+
+    header {
         display: flex;
-        flex-direction: column;     /* itens empilhados verticalmente */
-        justify-content: center;    /* centraliza verticalmente */
-        align-items: center;        /* centraliza horizontalmente */
+        position: relative;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header p{
+        position: absolute;
+        left: 45%;
+        bottom:7px;
+        opacity: 0.6;
+        letter-spacing: 1vw;
+    }
+
+    #img1 {
+        width: 50px;
+        margin: 9px;
+        filter: invert(100%); 
+        opacity: 0.6;
+        image-rendering: pixelated;
+    }
+
+    #img2 {
+        width: 40px;
+        margin: 10px;
+        filter: invert(100%);
+        opacity: 0.3; 
+        image-rendering: pixelated;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .bloco_superior {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5vh;
+        width: 18vw;
+        height: 5vh;
+        background-color: var(--rosa);
+    }
+
+    .bloco_superior h2 {
         text-align: center;         /* centraliza o texto */
         color: var(--amarelo);
-        background-color: var(--rosa);
-        margin-top: 5vw;
-        margin-left: 40vw;
-        margin-right: 40vw;
-        font-size: 20px; 
-        color: white;
-        margin-bottom:  15px;
-
-        border: 2px solid var(--rosa); /* grossa, marrom e sólida */
-        border-radius: 15px; /* opcional: cantos arredondados */
+        font-size: 10px; 
+        padding: 0;
     }
 
     .bloco_config {
@@ -26,8 +75,9 @@
         align-items: center;        /* centraliza horizontalmente */
         text-align: center;         /* centraliza o texto */
         background-color: #401234;
-        margin-left: 37.5vw;
-        margin-right: 37.5vw;
+        width: 20vw;
+        height: 50vh;
+        margin-bottom: 10%;
         box-shadow:
             0 1rem 0 -0.625rem #401234,
             1rem 0 0 -0.625rem #401234,
@@ -41,39 +91,46 @@
     }
 
     .bloco_config label {
-        color: white;
-        margin-top: 2vw;
-        font-size: 35px; 
+        color: var(--amarelo);
+        font-size: 15px; 
     }
 
-    .bloco_config #opcoes {
-        margin-bottom: 4.5vw;
-        font-size: 20px; 
-    }
-
-    #opcoes {
+    .opcoes {
         background-color: var(--laranja-escuro);
-        padding-top: 12.5px;
-        padding-bottom: 12.5px;
-        padding-left: 50px;
-        padding-right: 50px;
+        margin-bottom: 4.5vw;
+        color: #401234;
+        font-size: 15px; 
+        width: 50%;
+        height: 10%;
+        text-align: center;
     }
 
-    button {
-        background-color: green;
-
-        padding-top: 12.5px;
-        padding-bottom: 12.5px;
-        padding-left: 50px;
-        padding-right: 50px;
-
-        margin-bottom: 30px;
-
-        border: 15px solid var(--laranja-escuro); /* grossa, marrom e sólida */
-        border-radius: 15px; /* opcional: cantos arredondados */
+    .opcoes:hover {
+        background-color: var(--laranja-claro);
+        color:#5b1f4b;
     }
 
-    button a {
-        color: white;
+    .jogar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #20611d;
+        border: 5px solid #f29e6d;
+        box-shadow:
+            0 0.5rem 0 -0.3125rem #f29e6d,
+            0.5rem 0 0 -0.3125rem  #f29e6d,
+            -0.5rem 0 0 -0.3125rem  #f29e6d,
+            0 -0.5rem 0 -0.3125rem  #f29e6d;
+        width: 9vw;
+        height: 6vh;
+        
+    }
+
+    .jogar:hover {
+        background-color: #398235;
+    }
+
+    .jogar a {
+        color: var(--amarelo);
         font-size: 20px; 
     }

@@ -6,48 +6,46 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="CSS/jogo.css">
-    <script src="Script/global.js"></script>
     <link rel="stylesheet" href="css/config_jogo.css">
+    <script src="Script/global.js"></script>
 </head>
 
 <body>
     <header class="roxo">
-        <a href="Index.html"><img id="img1" src="imagens/profile_circle_icon_242774.png"></a>        
+        <a href="Index.html"><img id="img1" alt="Login" src="imagens/profile_circle_icon_242774.png"></a>        
         <h1>Pixel Memory</h1>
         
-        <a href="ranking.html"><img id="img2" src="imagens/worldgrid_80392.png"></a>
+        <a href="ranking.html"><img id="img2" alt="Ranking" src="imagens/worldgrid_80392.png"></a>
     </header>
 
-    <div class="bloco_superior">
-        <h1>CONFIGURAÇÕES DA PARTIDA</h1>
-    </div>
+    <main>
+        <div class="bloco_superior">
+            <h2>CONFIGURAÇÕES DA PARTIDA</h2>
+        </div>
 
-    <div class="bloco_config">
+        <div class="bloco_config">
 
-        <label for="opcoes">DIFICULDADE</label>    
-        <select id="opcoes">
-            <option value="opcao1">2 X 2</option>
-            <option value="opcao2">3 x 3</option>
-            <option value="opcao3">4 X 4</option>
-            <option value="opcao3">5 X 5</option>
-            <option value="opcao3">6 X 6</option>
-            <option value="opcao3">7 X 7</option>
-            <option value="opcao3">8 X 8</option>
-        </select>
+            <label for="opcoes1">DIFICULDADE</label>    
+            <select class="opcoes" id="opcoes1">
+                <option value="opcao1">2 X 2</option>
+                <option value="opcao3">4 X 4</option>
+                <option value="opcao3">6 X 6</option>
+                <option value="opcao3">8 X 8</option>
+            </select>
 
-        <label for="opcoes">MODO</label>    
-        <select id="opcoes">
-            <option value="opcao1">CLÁSSICO</option>
-            <option value="opcao2">CONTRA O TEMPO</option>
-        </select>
+            <label for="opcoes1">MODO</label>    
+            <select class="opcoes" id="opcoes2">
+                <option value="opcao1">CLÁSSICO</option>
+                <option value="opcao2">CONTRA O TEMPO</option>
+            </select>
 
-        <button> 
-            <a href="config_jogo.html">
-                INICIAR
-            </a>
-        </button>
-    
-    </div>
+            <div class="jogar"> 
+                <a href="jogo.html">
+                    INICIAR
+                </a>
+            </div>
+        
+        </div>
+    </main>
 
 </body>
