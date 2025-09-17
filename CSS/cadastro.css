@@ -6,24 +6,46 @@
     --laranja-escuro: #F09D6C;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+@keyframes glow { 
+  from { text-shadow: 0 0 5px #f29e6d; } 
+  to { text-shadow: 0 0 10px #f29e6d; } 
+}
+
+
+h1 {
+    font-size: 40px; 
+    color: #f29e6d; 
+    animation: glow 1s infinite alternate;
+    padding: 25px;
 }
 
 header {
     display: flex;
+    position: relative;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    height: 90px;
 }
 
-header img {
-    height: 50px;
+#img1 {
     width: 50px;
-    filter: brightness(0) invert(1);
+    margin: 9px;
+    filter: invert(100%); 
+    opacity: 0.6;
+    image-rendering: pixelated;
+}
+
+#img2 {
+    width: 40px;
+    margin: 10px;
+    filter: invert(100%);
+    opacity: 0.3; 
+    image-rendering: pixelated;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 #central-text {
