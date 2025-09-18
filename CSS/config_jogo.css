@@ -59,6 +59,8 @@
         width: 18vw;
         height: 5vh;
         background-color: var(--rosa);
+        border: 5px solid var(--rosa);
+        border-radius: 15px;
     }
 
     .bloco_superior h2 {
