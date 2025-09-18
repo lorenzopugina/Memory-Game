@@ -64,7 +64,7 @@
     }
 
     .bloco_superior h2 {
-        text-align: center;         /* centraliza o texto */
+        text-align: center;         
         color: var(--amarelo);
         font-size: 10px; 
         padding: 0;
@@ -72,10 +72,10 @@
 
     .bloco_config {
         display: flex;
-        flex-direction: column;     /* itens empilhados verticalmente */
-        justify-content: center;    /* centraliza verticalmente */
-        align-items: center;        /* centraliza horizontalmente */
-        text-align: center;         /* centraliza o texto */
+        flex-direction: column;     
+        justify-content: center;    
+        align-items: center;        
+        text-align: center;         
         background-color: #401234;
         width: 20vw;
         height: 50vh;

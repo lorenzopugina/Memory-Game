@@ -66,7 +66,7 @@ header p {
     font-size: 1.0rem;
     overflow-y: auto; 
     scrollbar-width: none; /* oculta barra de rolagem Firefox */
-    -ms-overflow-style: none; /* oculta rolagem Internet Explorer */
+    -ms-overflow-style: none; /* oculta rolagem IE*/
 }
 
 /* oculta rolagem Chrome, Edge, Safari */

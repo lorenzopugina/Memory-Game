@@ -33,7 +33,7 @@ body {
     overflow: hidden;
     height: 100vh;
     width: 100vw;
-    /* Degrade se quiser pode tirar */
+    /* Degrade */
     background: linear-gradient(to bottom, var(--amarelo), var(--laranja-escuro));
     margin: 0;
     font-family: sans-serif;
@@ -54,10 +54,6 @@ body {
     background-color: #BE399B;
     color: var(--amarelo);
 }
-/* inverso -> para usar nos botoes com :hover
-  background-color: F2EFBD;
-  color: #BE399B;
-*/
 
 .laranja-claro {
     background-color: #F2C46D;
