@@ -43,7 +43,6 @@ header p{
 .jogo-tela {
     display: flex;
     flex-direction: column;
-    position: relative;
     padding: 0;
     flex-wrap: wrap;
     height: 100%;    
@@ -54,9 +53,10 @@ header p{
 .campo {
     display: grid;
     padding: 10px;   /* 🔹 adiciona espaço interno */
-    width: clamp(300px, 40vw, 1200px);
+    width: clamp(300px, 35vw, 1200px);
     justify-content: center;
     align-items: center;
+    position: relative;
     background-color: #401234;  
     box-shadow:
     0 1rem 0 -0.625rem #401234,
@@ -83,6 +83,10 @@ header p{
     0 -0.625rem 0 -0.3125rem  #cf875d;
 }
 
+.transparente {
+    opacity: 0;
+}
+
 .pecas:hover {
     cursor: pointer;
     background-color: #ffb489;
@@ -91,11 +95,12 @@ header p{
 .desistir {
     position: absolute;
     background-color: #97141d;
+    text-align: center;
     padding: 5px;
     border: 10px solid #401234;
     width: clamp(100px, 6.5vw, 300px);
     left: 0%;
-    bottom: 15%;
+    bottom: 0%;
     transform: translate(-140%);
     box-shadow:
     0 0.5rem 0 -0.3125rem #401234,

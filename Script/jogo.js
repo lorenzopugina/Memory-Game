@@ -30,3 +30,12 @@ for (let i = 1; i <= dificuldade; i++) {
         pecasContainer.appendChild(pecas);
     }
 }
+
+//Revela peça ao clicar
+const pecas = document.querySelectorAll(".pecas");
+
+pecas.forEach(peca => {
+  peca.addEventListener("click", function() {
+    this.classList.add("transparente"); 
+  });
+});
