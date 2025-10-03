@@ -8,7 +8,7 @@ h1 {
     font-size: 40px; 
     color: #f29e6d; 
     animation: glow 1s infinite alternate;
-    padding: 25px;
+    padding-top: 15px;
 }
 
 header {
@@ -16,14 +16,12 @@ header {
     position: relative;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 header p{
-    position: absolute;
-    left: 45%;
-    bottom:7px;
-    opacity: 0.6;
-    letter-spacing: 1vw;
+    padding: 10px;
+    font-size: 1.25rem;
 }
 
 #img1 {
@@ -48,18 +46,15 @@ header p{
     position: relative;
     padding: 0;
     flex-wrap: wrap;
-    width: 37.87%;
     height: 100%;    
     justify-content: flex-start;
     align-items: center; 
 }
 
 .campo {
-    display: flex;
-    padding: 0;
-    flex-wrap: wrap;
-    width: clamp(260px, 27vw, 900px);
-    height: clamp(260px, 56vh, 900px);  
+    display: grid;
+    padding: 10px;   /* 🔹 adiciona espaço interno */
+    width: clamp(300px, 40vw, 1200px);
     justify-content: center;
     align-items: center;
     background-color: #401234;  
@@ -79,15 +74,18 @@ header p{
 
 .pecas {
     background-color: #f29e6d;
-    width: 17.07%;
-    height: 17.07%;
-    margin-left: 0.625rem;
-    margin-right: 0.625rem;
+    aspect-ratio: 1 / 1;   /* garante que será quadrada */
+    width: 100%;           /* ocupa toda a célula do grid */
     box-shadow:
     0 0.625rem 0 -0.3125rem #cf875d,
     0.625rem 0 0 -0.3125rem  #cf875d,
     -0.625rem 0 0 -0.3125rem  #cf875d,
     0 -0.625rem 0 -0.3125rem  #cf875d;
+}
+
+.pecas:hover {
+    cursor: pointer;
+    background-color: #ffb489;
 }
 
 .desistir {
@@ -96,9 +94,8 @@ header p{
     padding: 5px;
     border: 10px solid #401234;
     width: clamp(100px, 6.5vw, 300px);
-    height: clamp(50px, 7vh, 300px);
-    left: 10%;
-    bottom: 27%;
+    left: 0%;
+    bottom: 15%;
     transform: translate(-140%);
     box-shadow:
     0 0.5rem 0 -0.3125rem #401234,
@@ -114,7 +111,6 @@ header p{
 
 .topo {
     display: flex;
-    margin-top: 9vh;
     width: clamp(260px, 27vw, 900px);
     height: 7vh;
     justify-items: center;

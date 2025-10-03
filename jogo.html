@@ -10,14 +10,21 @@
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/jogo.css">
     <script src="Script/global.js"></script>
+    
 </head>
 
 <body>
     <header class="roxo">
-        <a href="historico.html"><img id="img1" alt="Historico" src="imagens/profile_circle_icon_242774.png"></a>        
-        <h1>Pixel Memory</h1>
-        <p>CLÁSSICO</p>
-        <a href="ranking.html"><img id="img2" alt="Ranking" src="imagens/worldgrid_80392.png"></a>
+        <div>
+            <a href="historico.html"><img id="img1" alt="Historico" src="imagens/profile_circle_icon_242774.png"></a>   
+        </div>
+        <div class="titulo">
+            <h1>Pixel Memory</h1>
+            <p id="Modo">CLÁSSICO</p>
+        </div>
+        <div>
+            <a href="ranking.html"><img id="img2" alt="Ranking" src="imagens/worldgrid_80392.png"></a>
+        </div>
     </header>
 
     <main>
@@ -34,27 +41,10 @@
             </div>
 
             <div class="campo">
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-                <div class="pecas"></div>
-
-                <div class="desistir">
-                    <a href="Index.html">Desistir</a>
-                </div> 
             </div>
+            <div class="desistir">
+                <a href="Index.html">Desistir</a>
+            </div> 
         </div>
 
         <div class="trapaca">
@@ -63,7 +53,7 @@
         </div>
 
     </main>
-
+    <script src="Script/jogo.js"></script>
 </body>
 
 </html>

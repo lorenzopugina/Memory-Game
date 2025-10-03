@@ -125,14 +125,11 @@
             0 -0.5rem 0 -0.3125rem  #f29e6d;
         width: 9vw;
         height: 6vh;
-        
+        color: var(--amarelo);
+        font-size: 20px; 
+        cursor: pointer;
     }
 
     .jogar:hover {
         background-color: #398235;
-    }
-
-    .jogar a {
-        color: var(--amarelo);
-        font-size: 20px; 
     }
