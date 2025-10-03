@@ -18,8 +18,8 @@ console.log("Dificuldade:", dificuldade);
 switch (dificuldade) {
     case 2: pecasContainer.style.gap = "50px"; pecasContainer.style.padding = "25px";  break;
     case 4: pecasContainer.style.gap = "20px"; break;
-    case 6: pecasContainer.style.gap = "10px"; break;
-    case 8: pecasContainer.style.gap = "5px"; break;
+    case 6: pecasContainer.style.gap = "14px"; break;
+    case 8: pecasContainer.style.gap = "12px"; break;
     default: pecasContainer.style.gap = "10px"; break;
 }
 
