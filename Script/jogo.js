@@ -11,9 +11,6 @@ if (modo === "classico") {
     tituloModo.textContent = "Contra o tempo";
 }
 
-console.log("Modo:", modo);
-console.log("Dificuldade:", dificuldade);
-
 //ajusta o espaço entre as peças conforme a dificuldade
 switch (dificuldade) {
     case 2: pecasContainer.style.gap = "50px"; pecasContainer.style.padding = "25px";  break;
@@ -27,6 +24,14 @@ for (let i = 1; i <= dificuldade; i++) {
     for (let j = 1; j <= dificuldade; j++) {
         const pecas = document.createElement("div");
         pecas.classList.add("pecas");
+
+            const img = document.createElement("img");
+        img.src = "../imagens/pecas/cogumeloteste.png"; 
+        img.alt = "Peça";
+
+        // adiciona a imagem dentro da div
+        pecas.appendChild(img);
+
         pecasContainer.appendChild(pecas);
     }
 }
@@ -36,6 +41,9 @@ const pecas = document.querySelectorAll(".pecas");
 
 pecas.forEach(peca => {
   peca.addEventListener("click", function() {
-    this.classList.add("transparente"); 
+    const img = this.querySelector('img'); // imagem dentro da peça clicada
+    if (img) {
+      img.style.opacity = '1';
+    }
   });
 });
