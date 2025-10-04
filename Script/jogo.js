@@ -4,14 +4,11 @@ const dificuldade = parseInt(params.get("Dificuldade"));
 const pecasContainer = document.querySelector(".campo");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
 
+// Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
-if (modo === "classico") {
-    tituloModo.textContent = "Clássico";
-} else if (modo === "tempo") {
-    tituloModo.textContent = "Contra o tempo";
-}
+tituloModo.textContent = modo === "classico" ? "Clássico" : "Contra o tempo";
 
-//ajusta o espaço entre as peças conforme a dificuldade
+// Ajusta o espaço entre as peças conforme a dificuldade
 switch (dificuldade) {
     case 2: pecasContainer.style.gap = "50px"; pecasContainer.style.padding = "25px";  break;
     case 4: pecasContainer.style.gap = "20px"; break;
@@ -20,38 +17,57 @@ switch (dificuldade) {
     default: pecasContainer.style.gap = "10px"; break;
 }
 
-for (let i = 1; i <= dificuldade; i++) {
-    for (let j = 1; j <= dificuldade; j++) {
-        const pecas = document.createElement("div");
-        pecas.classList.add("pecas");
+// Lista de imagens disponíveis (adicionar todas)
+const imagensDisponiveis = [
+    "estrela.png",
+    "cogumelo.png",
+    "luigi.png",
+    "marca.png",
+    "mario.png",
+    "planta.png",
+    "waluigi.png",
+    "wario.png"
+];
 
-        //Só para ter imagens diferentes, alterna entre duas imagens, mas isso não é definitivo
-        if(i%2 === 0 && j%2 !== 0 || i%2 !== 0 && j%2 === 0) {
-            const img = document.createElement("img");
-            img.src = "../imagens/pecas/estrelaamarela.png"; 
-            img.alt = "Peça";
-            pecas.appendChild(img); // adiciona a imagem dentro da div
-        } else {
-            const img = document.createElement("img");
-            img.src = "../imagens/pecas/cogumeloteste.png"; 
-            img.alt = "Peça";
-            pecas.appendChild(img); // adiciona a imagem dentro da div
-        }
+// Calcula quantas peças terão
+const totalPecas = dificuldade * dificuldade;
+const totalPares = totalPecas / 2;
 
-        pecasContainer.appendChild(pecas);
-    }
-}
+// aleatoriza o array de imagens (acho q da pra fazer melhor)
+let imagensEscolhidas = imagensDisponiveis.sort(() => Math.random() - 0.5);
 
-//Revela peça ao clicar
+// Seleciona apenas o número necessário de imagens
+imagensEscolhidas.slice(0, totalPares);
+
+// Duplica o array de imagens e coloca dentro do array baralho (operador ... copia os itens do array)
+let baralho = [...imagensEscolhidas, ...imagensEscolhidas];
+
+// Aleatoriza as imagens para os pares não ficarem juntos
+baralho.sort(() => Math.random() - 0.5);
+
+// Cria as peças cada uma com sua imagem
+baralho.forEach(imgNome => {
+    const peca = document.createElement("div");
+    peca.classList.add("pecas");
+
+    const img = document.createElement("img");
+    img.src = `../imagens/pecas/${imgNome}`;
+    img.alt = "Peça";
+    img.style.opacity = "0"; // começa oculta
+
+    peca.appendChild(img);
+    pecasContainer.appendChild(peca);
+});
+
+// Lógica de revelação e comparação
 const pecas = document.querySelectorAll(".pecas");
-
 let primeiraPeca = null;
 let segundaPeca = null;
-let bloqueado = false; // impede clicar enquanto as peças estão sendo verificadas
+let bloqueado = false;
 
 function verificaPecas(e) {
     const pecaClicada = e.currentTarget;
-    if (pecaClicada === primeiraPeca) return; // evita clicar na mesma peça duas vezes  
+    if (pecaClicada === primeiraPeca) return;
     if (bloqueado) return;
 
     revelarPeca(pecaClicada);
@@ -72,30 +88,27 @@ function verificaPecas(e) {
         segundaPeca.classList.add("mesma-peca");
         resetarSelecao();
     } else {
-        setTimeout(() => {
+        setTimeout(() => { // espera 1 segundo antes de ocultar novamente
             primeiraPeca.querySelector('img').style.opacity = '0';
             segundaPeca.querySelector('img').style.opacity = '0';
             resetarSelecao();
         }, 1000);
     }
-    
 }
 
 function revelarPeca(peca) {
-     const img = peca.querySelector('img'); // imagem dentro da peça clicada
-    if (img) {
-      img.style.opacity = '1';
-    }   
+    const img = peca.querySelector('img');
+    if (img) img.style.opacity = '1'; // se a imagem existir, revela
 }
 
 pecas.forEach(peca => {
-  peca.addEventListener("click", verificaPecas);
+    peca.addEventListener("click", verificaPecas);
 });
 
+// Função para obter o valor (src da imagem) de uma peça
 function getPecaValue(peca) {
     const img = peca.querySelector('img');
-    if (img && img.src) 
-        return img.src;
+    return img?.src;
 }
 
 function resetarSelecao() {
