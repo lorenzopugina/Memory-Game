@@ -147,12 +147,18 @@ main {
 .trapaca {
     position: fixed;
     color: #401234;
-    bottom: 1%;
-    right: 1%;
+    bottom: 2%;
+    right: 2%;
 }
 
 .pecas img {
     width: 90%;
     height: 90%;
     opacity: 0;
+}
+
+.mesma-peca {
+    pointer-events: none; /* desativa clique na peça */
+    cursor: default;
+    opacity: 0.8;
 }
