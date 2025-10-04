@@ -37,7 +37,7 @@ const totalPares = totalPecas / 2;
 let imagensEscolhidas = imagensDisponiveis.sort(() => Math.random() - 0.5);
 
 // Seleciona apenas o número necessário de imagens
-imagensEscolhidas.slice(0, totalPares);
+imagensEscolhidas = imagensEscolhidas.slice(0, totalPares);
 
 // Duplica o array de imagens e coloca dentro do array baralho (operador ... copia os itens do array)
 let baralho = [...imagensEscolhidas, ...imagensEscolhidas];
