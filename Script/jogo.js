@@ -3,6 +3,8 @@ const modo = params.get("modo");
 const dificuldade = parseInt(params.get("Dificuldade")); 
 const pecasContainer = document.querySelector(".campo");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
+const movimentos = document.getElementById("numMovimentos");
+let movimentosCount = 0;
 
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
@@ -99,6 +101,8 @@ function verificaPecas(e) {
 function revelarPeca(peca) {
     const img = peca.querySelector('img');
     if (img) img.style.opacity = '1'; // se a imagem existir, revela
+    movimentosCount++;
+    movimentos.textContent = movimentosCount;
 }
 
 pecas.forEach(peca => {
