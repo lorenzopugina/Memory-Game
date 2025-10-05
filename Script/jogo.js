@@ -4,10 +4,6 @@ const dificuldade = parseInt(params.get("Dificuldade"));
 const pecasContainer = document.querySelector(".campo");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
 const movimentos = document.getElementById("numMovimentos");
-let movimentosCount = 0;
-const tempo = document.querySelector(".tempo");
-let sec = 0, min = 0, segundos = 0;
-let intervalo;
 
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
@@ -55,13 +51,25 @@ baralho.forEach(imgNome => {
     const peca = document.createElement("div");
     peca.classList.add("pecas");
 
+    const carta = document.createElement("div");
+    carta.classList.add("carta");
+
+    // Verso (parte de trás da carta)
+    const verso = document.createElement("div");
+    verso.classList.add("carta-verso");
+
+    // Frente (imagem verdadeira)
+    const frente = document.createElement("div");
+    frente.classList.add("carta-frente");
     const img = document.createElement("img");
     img.src = `../imagens/pecas/${imgNome}`;
-    img.alt = "Peça";
-    img.style.opacity = "0"; // começa oculta
+    frente.appendChild(img);
 
-    peca.appendChild(img);
+    carta.appendChild(frente);
+    carta.appendChild(verso);
+    peca.appendChild(carta);
     pecasContainer.appendChild(peca);
+
 });
 
 // Lógica de revelação e comparação
@@ -93,18 +101,19 @@ function verificaPecas(e) {
         segundaPeca.classList.add("mesma-peca");
         resetarSelecao();
     } else {
-        setTimeout(() => { // espera 1 segundo antes de ocultar novamente
-            primeiraPeca.querySelector('img').style.opacity = '0';
-            segundaPeca.querySelector('img').style.opacity = '0';
+        setTimeout(() => { // espera 1 segundo antes de virar de volta
+            virarCarta(primeiraPeca);
+            virarCarta(segundaPeca);
             resetarSelecao();
         }, 1000);
     }
 }
 
+let movimentosCount = 0;
+
 function revelarPeca(peca) {
     if (movimentosCount === 0 && modo === "classico") iniciarTempo();
-    const img = peca.querySelector('img');
-    if (img) img.style.opacity = '1'; // se a imagem existir, revela
+    virarCarta(peca); // agora usamos o flip em vez de opacity
     movimentosCount++;
     movimentos.textContent = movimentosCount;
 }
@@ -113,9 +122,8 @@ pecas.forEach(peca => {
     peca.addEventListener("click", verificaPecas);
 });
 
-// Função para obter o valor (src da imagem) de uma peça
 function getPecaValue(peca) {
-    const img = peca.querySelector('img');
+    const img = peca.querySelector('.carta-frente img');
     return img?.src;
 }
 
@@ -124,6 +132,16 @@ function resetarSelecao() {
     segundaPeca = null;
     bloqueado = false;
 }
+
+function virarCarta(peca) {
+    const carta = peca.querySelector(".carta");
+    carta.classList.toggle("virada");
+}
+
+
+const tempo = document.querySelector(".tempo");
+let sec = 0, min = 0, segundos = 0;
+let intervalo;
 
 function iniciarTempo() {
     intervalo = setInterval(() => {
@@ -136,7 +154,7 @@ function pararTempo() {
     clearInterval(intervalo);
 }
 
-function atualizarTempo() { // atualiza o display do tempo
+function atualizarTempo() {
     if (segundos < 60) {
         sec = segundos;
     } else {
