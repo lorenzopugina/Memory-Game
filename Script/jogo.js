@@ -1,10 +1,13 @@
 const params = new URLSearchParams(window.location.search);
-const modo = params.get("modo"); 
+const modo = params.get("modo");
 const dificuldade = parseInt(params.get("Dificuldade")); 
 const pecasContainer = document.querySelector(".campo");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
 const movimentos = document.getElementById("numMovimentos");
 let movimentosCount = 0;
+const tempo = document.querySelector(".tempo");
+let sec = 0, min = 0, segundos = 0;
+let intervalo;
 
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
@@ -99,6 +102,7 @@ function verificaPecas(e) {
 }
 
 function revelarPeca(peca) {
+    if (movimentosCount === 0 && modo === "classico") iniciarTempo();
     const img = peca.querySelector('img');
     if (img) img.style.opacity = '1'; // se a imagem existir, revela
     movimentosCount++;
@@ -119,4 +123,25 @@ function resetarSelecao() {
     primeiraPeca = null;
     segundaPeca = null;
     bloqueado = false;
+}
+
+function iniciarTempo() {
+    intervalo = setInterval(() => {
+        segundos++;
+        atualizarTempo();
+    }, 1000);
+}
+
+function pararTempo() {
+    clearInterval(intervalo);
+}
+
+function atualizarTempo() { // atualiza o display do tempo
+    if (segundos < 60) {
+        sec = segundos;
+    } else {
+        min++;
+        segundos = 0;
+    }
+    tempo.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
