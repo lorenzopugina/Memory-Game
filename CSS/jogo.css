@@ -140,10 +140,12 @@ main {
     justify-content: center;
     align-items: center;
     perspective: 800px; /* Cria profundidade 3D para a animação de virar*/
+    transition: background-color 0.1s ease; /* suaviza o sumiço */
+
 }
 
 .pecas.virando {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 .pecas img {

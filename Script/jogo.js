@@ -136,18 +136,13 @@ function resetarSelecao() {
 function virarCarta(peca) {
   const carta = peca.querySelector(".carta");
 
-  // adiciona classe que tira o fundo
   peca.classList.add("virando");
-
-  // inicia o giro
   carta.classList.toggle("virada");
 
   // remove a classe ao fim da transição
-  carta.addEventListener(
-    "transitionend",
-    () => peca.classList.remove("virando"),
-    { once: true }
-  );
+  setTimeout(() => {
+    peca.classList.remove("virando");
+  }, 300); 
 }
 
 
