@@ -134,9 +134,22 @@ function resetarSelecao() {
 }
 
 function virarCarta(peca) {
-    const carta = peca.querySelector(".carta");
-    carta.classList.toggle("virada");
+  const carta = peca.querySelector(".carta");
+
+  // adiciona classe que tira o fundo
+  peca.classList.add("virando");
+
+  // inicia o giro
+  carta.classList.toggle("virada");
+
+  // remove a classe ao fim da transição
+  carta.addEventListener(
+    "transitionend",
+    () => peca.classList.remove("virando"),
+    { once: true }
+  );
 }
+
 
 
 const tempo = document.querySelector(".tempo");
