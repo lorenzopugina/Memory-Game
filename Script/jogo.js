@@ -107,6 +107,11 @@ function verificaPecas(e) {
             resetarSelecao();
         }, 1000);
     }
+
+    let vitoria = verificaVitoria();
+    if (vitoria === 1) {
+        exibirVitoria(vitoria);
+    }
 }
 
 let movimentosCount = 0;
@@ -170,4 +175,35 @@ function atualizarTempo() {
         segundos = 0;
     }
     tempo.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+}
+
+function verificaVitoria() {
+    const tabuleiro = document.querySelector(".campo");
+    const pecas = tabuleiro.querySelectorAll(".pecas");
+    const todasClicadas = Array.from(pecas).every(div => div.classList.contains("mesma-peca"));
+
+    if (todasClicadas) {
+        return 1;
+    }
+    else return 0;
+}
+
+function desistir_jogo() {               
+    exibirVitoria(2);
+}
+
+function exibirVitoria(vitoria) {
+    pararTempo();
+    setTimeout(() => {
+        if (vitoria === 1) {
+            alert(`Parabéns! Você venceu!\nTempo: ${tempo.textContent}\nMovimentos: ${movimentosCount}`);
+            resetarJogo();
+        } else if (vitoria === 2) {
+            alert("Voce perdeu, hahahahahahaha");
+            resetarJogo();
+        }}, 500);
+}
+
+function resetarJogo() {
+    location.reload();
 }
