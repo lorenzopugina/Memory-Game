@@ -3,6 +3,10 @@
   to { text-shadow: 0 0 10px #f29e6d; } 
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
 
 h1 {
     font-size: 40px; 
@@ -44,10 +48,10 @@ header p{
     display: flex;
     flex-direction: column;
     padding: 0;
-    flex-wrap: wrap;
-    height: 100%;    
+    flex-wrap: wrap;    
     justify-content: flex-start;
     align-items: center; 
+    margin-bottom: 15px;
 }
 
 .campo {
@@ -119,7 +123,7 @@ header p{
 main {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -199,4 +203,15 @@ main {
     pointer-events: none; /* desativa clique na peça */
     cursor: default;
     opacity: 0.8;
+}
+
+.progresso {
+    height: 20px;
+    width: 300px;
+    appearance: none;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 0 5px #000;
 }

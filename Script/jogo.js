@@ -4,6 +4,7 @@ const dificuldade = parseInt(params.get("Dificuldade"));
 const pecasContainer = document.querySelector(".campo");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
 const movimentos = document.getElementById("numMovimentos");
+let intervalo;
 
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
@@ -72,6 +73,28 @@ baralho.forEach(imgNome => {
 
 });
 
+// Adiciona a barra de progresso se o modo for contra o tempo
+if (modo === "tempo") {
+    const jogoTela = document.querySelector(".jogo-tela");
+    const barra = document.createElement("progress");
+    barra.classList.add("progresso");
+    barra.max = 100;
+    barra.value = 100;
+    jogoTela.appendChild(barra);
+}
+
+// Lógica da barra de progresso
+const barra = document.querySelector(".progresso");
+function iniciarBarraProgresso() {
+    intervalo = setInterval(() => {
+        barra.value -= 100 / 60; // Diminui completamente em 60 segundos
+        if (barra.value <= 0) {
+            exibirVitoria(2); // Perdeu
+            clearInterval(intervalo);
+        }
+    }, 1000);
+}
+
 // Lógica de revelação e comparação
 const pecas = document.querySelectorAll(".pecas");
 let primeiraPeca = null;
@@ -117,7 +140,13 @@ function verificaPecas(e) {
 let movimentosCount = 0;
 
 function revelarPeca(peca) {
-    if (movimentosCount === 0 && modo === "classico") iniciarTempo();
+    if (movimentosCount === 0) {
+        if (modo === "classico") {
+            iniciarTempo();
+        } else if (modo === "tempo") {
+            iniciarBarraProgresso();
+        }
+    }
     virarCarta(peca); // agora usamos o flip em vez de opacity
     movimentosCount++;
     movimentos.textContent = movimentosCount;
@@ -150,11 +179,8 @@ function virarCarta(peca) {
   }, 300); 
 }
 
-
-
 const tempo = document.querySelector(".tempo");
 let sec = 0, min = 0, segundos = 0;
-let intervalo;
 
 function iniciarTempo() {
     intervalo = setInterval(() => {
@@ -196,7 +222,8 @@ function exibirVitoria(vitoria) {
     pararTempo();
     setTimeout(() => {
         if (vitoria === 1) {
-            alert(`Parabéns! Você venceu!\nTempo: ${tempo.textContent}\nMovimentos: ${movimentosCount}`);
+            if (modo === "tempo") alert(`Parabéns! Você venceu!\nMovimentos: ${movimentosCount}`);
+            else alert(`Parabéns! Você venceu!\nTempo: ${tempo.textContent}\nMovimentos: ${movimentosCount}`);
             resetarJogo();
         } else if (vitoria === 2) {
             alert("Voce perdeu, hahahahahahaha");
