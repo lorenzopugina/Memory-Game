@@ -5,6 +5,7 @@ const pecasContainer = document.querySelector(".campo");
 const jogoContainer = document.querySelector(".jogo-tela");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
 const movimentos = document.getElementById("numMovimentos");
+let intervalo;
 
 const dificuldade_texto = params.get("Dificuldade") === "2" ? "Fácil" :
                          params.get("Dificuldade") === "4" ? "Médio" :
@@ -77,6 +78,32 @@ baralho.forEach(imgNome => {
 
 });
 
+// Adiciona a barra de progresso se o modo for contra o tempo
+if (modo === "tempo") {
+    const jogoTela = document.querySelector(".jogo-tela");
+    const barra = document.createElement("progress");
+    barra.classList.add("progresso");
+    barra.max = 100;
+    barra.value = 100;
+    jogoTela.appendChild(barra);
+}
+
+// Lógica da barra de progresso
+const barra = document.querySelector(".progresso");
+let jogoAtivo = true;
+function iniciarBarraProgresso() {
+    intervalo = setInterval(() => {
+        if (!jogoAtivo) return;
+
+        barra.value -= 100 / 10; // Diminui completamente em 60 segundos
+        if (barra.value <= 0) {
+            jogoAtivo = false;
+            exibirVitoria(2); // Perdeu
+            clearInterval(intervalo);
+        }
+    }, 1000);
+}
+
 // Lógica de revelação e comparação
 const pecas = document.querySelectorAll(".pecas");
 let primeiraPeca = null;
@@ -122,7 +149,14 @@ function verificaPecas(e) {
 let movimentosCount = 0;
 
 function revelarPeca(peca) {
-    if (movimentosCount === 0 && modo === "classico") iniciarTempo();
+    if (movimentosCount === 0) {
+        if (modo === "classico") {
+            iniciarTempo();
+        } else if (modo === "tempo") {
+            iniciarBarraProgresso();
+            iniciarTempo();
+        }
+    }
     virarCarta(peca); // agora usamos o flip em vez de opacity
     movimentosCount++;
     movimentos.textContent = movimentosCount;
@@ -157,7 +191,6 @@ function virarCarta(peca) {
 
 const tempo = document.querySelector(".tempo");
 let sec = 0, min = 0, segundos = 0;
-let intervalo;
 
 function iniciarTempo() {
     intervalo = setInterval(() => {
@@ -199,6 +232,11 @@ function exibirVitoria(vitoria) {
     pararTempo();
     setTimeout(() => {
         if (vitoria === 1) {
+            if (modo === "tempo") {
+                const barra = document.querySelector(".progresso");
+                barra.classList.add("escondido");
+            }
+
             const tela_vitoria = document.createElement("div");
             const sair = document.createElement("div");
             const topo = document.querySelector(".topo");
@@ -222,6 +260,10 @@ function exibirVitoria(vitoria) {
             sair.classList.add("sair");
 
         } else if (vitoria === 2) {
+            if (modo === "tempo") {
+                const barra = document.querySelector(".progresso");
+                barra.classList.add("escondido");
+            }
             const tela_derrota = document.createElement("div");
             const sair = document.createElement("div");
             const topo = document.querySelector(".topo");
