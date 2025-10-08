@@ -200,3 +200,145 @@ main {
     cursor: default;
     opacity: 0.8;
 }
+
+.escondido {
+    opacity: 0;
+    pointer-events: none; /* desativa clique na peça */
+    cursor: default;
+}
+
+.tela-vitoria {
+    position: absolute;
+    top: 10%;
+    width: 25%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    background-color: #401234;
+    box-shadow:
+        0 1rem 0 -0.625rem #401234,
+        1rem 0 0 -0.625rem #401234,
+        -1rem 0 0 -0.625rem #401234,
+        0 -1rem 0 -0.625rem #401234, 
+        0 1rem 0 -0.3125rem #f2c46d,
+        1rem 0 0 -0.3125rem #f2c46d,
+        -1rem 0 0 -0.3125rem #f2c46d,
+        0 -1rem 0 -0.3125rem #f2c46d,  
+        0 0px 0 0.3125rem #f2c46d,
+        0 0px 50px 0.5rem #000000;
+    z-index: 3;
+}
+
+.tela-vitoria h2 {
+    color: #f1eebc;
+    background-color: #20611d;
+    font-size: 1.5rem;
+    padding: 10px;
+    box-shadow:
+        0 0.625rem 0 -0.3125rem #20611d,
+        0.625rem 0 0 -0.3125rem  #20611d,
+        -0.625rem 0 0 -0.3125rem  #20611d,
+        0 -0.625rem 0 -0.3125rem  #20611d;
+}
+
+.tela-vitoria p {
+    color: #f1eebc;
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+.tela-vitoria .estrela-vitoria {
+    width: 35%;
+    height: 35%;
+}
+
+.tela-derrota {
+    position: absolute;
+    top: 10%;
+    width: 25%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    background-color: #401234;
+    box-shadow:
+        0 1rem 0 -0.625rem #401234,
+        1rem 0 0 -0.625rem #401234,
+        -1rem 0 0 -0.625rem #401234,
+        0 -1rem 0 -0.625rem #401234, 
+        0 1rem 0 -0.3125rem #97141d,
+        1rem 0 0 -0.3125rem #97141d,
+        -1rem 0 0 -0.3125rem #97141d,
+        0 -1rem 0 -0.3125rem #97141d,  
+        0 0px 0 0.3125rem #97141d,
+        0 0px 50px 0.5rem #000000;
+    z-index: 3;
+}
+
+.tela-derrota h2 {
+    color: #f1eebc;
+    background-color: #97141d;
+    font-size: 1.5rem;
+    padding: 10px;
+    box-shadow:
+        0 0.625rem 0 -0.3125rem #97141d,
+        0.625rem 0 0 -0.3125rem  #97141d,
+        -0.625rem 0 0 -0.3125rem  #97141d,
+        0 -0.625rem 0 -0.3125rem  #97141d;
+}
+
+.tela-derrota p {
+    color: #f1eebc;
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+.tela-derrota .triste-derrota {
+    width: 40%;
+    height: 35%;
+    opacity: 0.6;
+}
+
+.tela-vitoria button, .tela-derrota button {
+    background-color: #bf399c;
+    color: #f1eebc;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow:
+        0 0.625rem 0 -0.3125rem #bf399c,
+        0.625rem 0 0 -0.3125rem  #bf399c,
+        -0.625rem 0 0 -0.3125rem  #bf399c,
+        0 -0.625rem 0 -0.3125rem  #bf399c;
+}
+
+.tela-vitoria button:hover, .tela-derrota button:hover {
+    background-color: #d85fb8;
+}
+
+.sair {
+    position: absolute;
+    bottom: 18%;
+    background-color: #97141d;
+    text-align: center;
+    padding: 5px;
+    border: 10px solid #401234;
+    width: clamp(100px, 6.5vw, 300px);
+    height: auto;
+    box-shadow:
+        0 0.5rem 0 -0.3125rem #401234,
+        0.5rem 0 0 -0.3125rem  #401234,
+        -0.5rem 0 0 -0.3125rem  #401234,
+        0 -0.5rem 0 -0.3125rem  #401234;
+}
+
+.sair a {
+    text-decoration: none;
+    color: #f1eebc;
+}

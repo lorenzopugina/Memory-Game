@@ -1,9 +1,14 @@
 const params = new URLSearchParams(window.location.search);
 const modo = params.get("modo");
-const dificuldade = parseInt(params.get("Dificuldade")); 
+const dificuldade = parseInt(params.get("Dificuldade"));
 const pecasContainer = document.querySelector(".campo");
+const jogoContainer = document.querySelector(".jogo-tela");
 pecasContainer.style.gridTemplateColumns = `repeat(${dificuldade}, 1fr)`;
 const movimentos = document.getElementById("numMovimentos");
+
+const dificuldade_texto = params.get("Dificuldade") === "2" ? "Fácil" :
+                         params.get("Dificuldade") === "4" ? "Médio" :
+                         params.get("Dificuldade") === "6" ? "Difícil" : "Muito Difícil"; 
 
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
@@ -150,8 +155,6 @@ function virarCarta(peca) {
   }, 300); 
 }
 
-
-
 const tempo = document.querySelector(".tempo");
 let sec = 0, min = 0, segundos = 0;
 let intervalo;
@@ -196,12 +199,61 @@ function exibirVitoria(vitoria) {
     pararTempo();
     setTimeout(() => {
         if (vitoria === 1) {
-            alert(`Parabéns! Você venceu!\nTempo: ${tempo.textContent}\nMovimentos: ${movimentosCount}`);
-            resetarJogo();
+            const tela_vitoria = document.createElement("div");
+            const sair = document.createElement("div");
+            const topo = document.querySelector(".topo");
+            topo.classList.add("escondido");
+            pecasContainer.classList.add("escondido");
+            tela_vitoria.classList.add("tela-vitoria");
+            jogoContainer.appendChild(tela_vitoria);
+            jogoContainer.appendChild(sair);
+
+            tela_vitoria.innerHTML = `
+                <h2>Você Venceu!</h2>
+                <img src="../imagens/estrelaVitoria.gif" alt="Estrela de Vitória" class="estrela-vitoria">
+                <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
+                <br>Movimentos: ${movimentosCount}
+                <br>Modo: ${tituloModo.textContent}
+                <br>Dificuldade: ${dificuldade_texto}
+                <br>Data: ${obterDataAtual()}</p>
+                <button onclick="resetarJogo()">Jogar Novamente</button>
+            `;
+            sair.innerHTML = `<a href="config_jogo.html">Sair</a>`;
+            sair.classList.add("sair");
+
         } else if (vitoria === 2) {
-            alert("Voce perdeu, hahahahahahaha");
-            resetarJogo();
+            const tela_derrota = document.createElement("div");
+            const sair = document.createElement("div");
+            const topo = document.querySelector(".topo");
+            topo.classList.add("escondido");
+            pecasContainer.classList.add("escondido");
+            tela_derrota.classList.add("tela-derrota");
+            jogoContainer.appendChild(tela_derrota);
+            jogoContainer.appendChild(sair);
+
+            tela_derrota.innerHTML = `
+                <h2>Você Perdeu</h2>
+                <img src="../imagens/triste.gif" alt="Cara Triste" class="triste-derrota">
+                <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
+                <br>Movimentos: ${movimentosCount}
+                <br>Modo: ${tituloModo.textContent}
+                <br>Dificuldade: ${dificuldade_texto}
+                <br>Data: ${obterDataAtual()}</p>
+                <button onclick="resetarJogo()">Jogar Novamente</button>
+            `;
+            sair.innerHTML = `<a href="config_jogo.html">Sair</a>`;
+            sair.classList.add("sair");
         }}, 500);
+}
+
+function obterDataAtual() {
+    const hoje = new Date();
+    const dia = String(hoje.getDate()).padStart(2, '0');
+    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+    const ano = hoje.getFullYear();
+    const horas = String(hoje.getHours()).padStart(2, '0');
+    const minutos = String(hoje.getMinutes()).padStart(2, '0');
+    return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
 }
 
 function resetarJogo() {
