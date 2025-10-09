@@ -159,7 +159,7 @@ function revelarPeca(peca) {
     }
     virarCarta(peca); // agora usamos o flip em vez de opacity
     movimentosCount++;
-    movimentos.textContent = movimentosCount;
+    movimentos.textContent = Math.floor(movimentosCount / 2);
 }
 
 pecas.forEach(peca => {
