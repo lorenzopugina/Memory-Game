@@ -33,7 +33,18 @@ const imagensDisponiveis = [
     "mario.png",
     "planta.png",
     "waluigi.png",
-    "wario.png"
+    "wario.png",
+    "akuaku.png",
+    "crash.png",
+    "cortex.png",
+    "bomberman.png",
+    "bulbasaur.png",
+    "charmander.png",
+    "squirtle.png",
+    "pikachu.png",
+    "meowth.png",
+    "megaman.png",
+    "yoshi.png",
 ];
 
 // Calcula quantas peças terão
@@ -95,7 +106,8 @@ function iniciarBarraProgresso() {
     intervalo = setInterval(() => {
         if (!jogoAtivo) return;
 
-        barra.value -= 100 / 10; // Diminui completamente em 60 segundos
+        barra.value -= 100 / ((dificuldade * dificuldade) * 2);
+
         if (barra.value <= 0) {
             jogoAtivo = false;
             exibirVitoria(2); // Perdeu
