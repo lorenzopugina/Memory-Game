@@ -1,6 +1,6 @@
 @keyframes glow { 
-  from { text-shadow: 0 0 5px #f29e6d; } 
-  to { text-shadow: 0 0 10px #f29e6d; } 
+    from { text-shadow: 0 0 5px #f29e6d; } 
+    to { text-shadow: 0 0 10px #f29e6d; } 
 }
 
 h1 {
@@ -353,4 +353,29 @@ main {
     overflow: hidden;
     margin-top: 20px;
     box-shadow: 0 0 5px #000;
+}
+
+/* Novo CSS para o Modo Trapaça */
+
+.verde {
+    background-color: greenyellow;
+}
+
+.amarelo {
+    background-color: yellow;
+}
+
+.vermelho {
+    animation: piscar 0.3s infinite alternate;
+}
+
+@keyframes piscar {
+    from {
+        background-color: red;
+        opacity: 1;
+    }
+    to {
+        background-color: transparent;
+        opacity: 0.3;
+    }
 }

@@ -8,8 +8,8 @@ const movimentos = document.getElementById("numMovimentos");
 let intervalo;
 
 const dificuldade_texto = params.get("Dificuldade") === "2" ? "Fácil" :
-                         params.get("Dificuldade") === "4" ? "Médio" :
-                         params.get("Dificuldade") === "6" ? "Difícil" : "Muito Difícil"; 
+                        params.get("Dificuldade") === "4" ? "Médio" :
+                        params.get("Dificuldade") === "6" ? "Difícil" : "Muito Difícil"; 
 
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
@@ -78,6 +78,18 @@ baralho.forEach(imgNome => {
 
 });
 
+// Exemplo de carta:
+/*
+        <div class="pecas">
+            <div class="carta">
+                <div class="carta-frente">
+                <img src="../imagens/pecas/mario.png" alt="mario">
+                </div>
+                <div class="carta-verso"></div>
+            </div>
+        </div>
+*/
+
 // Adiciona a barra de progresso se o modo for contra o tempo
 if (modo === "tempo") {
     const jogoTela = document.querySelector(".jogo-tela");
@@ -111,43 +123,95 @@ let segundaPeca = null;
 let bloqueado = false;
 
 function verificaPecas(e) {
+    // validacao inicial
     const pecaClicada = e.currentTarget;
     if (pecaClicada === primeiraPeca) return;
     if (bloqueado) return;
 
-    revelarPeca(pecaClicada);
+    
+    if(trapacaAtiva === true){
+        trapacaJogar(pecaClicada);
+    }
 
+    if(trapacaAtiva === false){
+        revelarPeca(pecaClicada);
+    }
+
+    // atribuir primeira peca
     if (!primeiraPeca) {
         primeiraPeca = pecaClicada;
         return;
     }
 
+    // atribuir segunda peca
     segundaPeca = pecaClicada;
     bloqueado = true;
 
     const valorPrimeira = getPecaValue(primeiraPeca);
     const valorSegunda = getPecaValue(segundaPeca);
 
-    if (valorPrimeira === valorSegunda) {
-        primeiraPeca.classList.add("mesma-peca");
-        segundaPeca.classList.add("mesma-peca");
-        resetarSelecao();
-    } else {
-        setTimeout(() => { // espera 1 segundo antes de virar de volta
-            virarCarta(primeiraPeca);
-            virarCarta(segundaPeca);
-            resetarSelecao();
-        }, 1000);
-    }
+    //here: entrar
+    if(trapacaAtiva === true) {
+        if(valorPrimeira === valorSegunda){
+            console.log("TRAPACA jogador ACERTOU a combinacao");
+            // vou comecar codar agora a excessao de trapaca ativa
+            primeiraPeca.classList.add("mesma-peca");
+            segundaPeca.classList.add("mesma-peca");
 
-    let vitoria = verificaVitoria();
-    if (vitoria === 1) {
-        exibirVitoria(vitoria);
+            primeiraPeca.querySelector(".carta-frente").classList.remove("amarelo");
+            segundaPeca.querySelector(".carta-frente").classList.remove("amarelo");
+
+            let aux;
+            aux = primeiraPeca.querySelector(".carta-frente");
+            aux.classList.add("verde");
+            aux = segundaPeca.querySelector(".carta-frente");
+            aux.classList.add("verde");
+
+            resetarSelecao();
+        }else{
+            console.log("TRAPACA jogador ERROU a combinacao");
+
+            let aux;
+            aux = primeiraPeca.querySelector(".carta-frente");
+            aux.classList.add("vermelho");
+            aux = segundaPeca.querySelector(".carta-frente");
+            aux.classList.add("vermelho");
+
+            // chama resetarSelecao junto com a remoção do efeito'
+            
+            setTimeout(() => {
+                primeiraPeca.querySelector(".carta-frente").classList.remove("vermelho");
+                segundaPeca.querySelector(".carta-frente").classList.remove("vermelho");
+                primeiraPeca.querySelector(".carta-frente").classList.remove("amarelo");
+                segundaPeca.querySelector(".carta-frente").classList.remove("amarelo");
+
+                resetarSelecao(); // só depois que termina o vermelho
+            }, 1000);
+        }
+    }else if(trapacaAtiva === false){
+
+        if (valorPrimeira === valorSegunda) {
+            primeiraPeca.classList.add("mesma-peca");
+            segundaPeca.classList.add("mesma-peca");
+            resetarSelecao();
+        } else {//here trapaca
+            setTimeout(() => { // espera 1 segundo antes de virar de volta
+                virarCarta(primeiraPeca);
+                virarCarta(segundaPeca);
+                resetarSelecao();
+            }, 1000);
+        }
+
+        let vitoria = verificaVitoria();
+        if (vitoria === 1) {
+            exibirVitoria(vitoria);
+        }
     }
 }
 
 let movimentosCount = 0;
 
+//here
 function revelarPeca(peca) {
     if (movimentosCount === 0) {
         if (modo === "classico") {
@@ -157,9 +221,32 @@ function revelarPeca(peca) {
             iniciarTempo();
         }
     }
+
     virarCarta(peca); // agora usamos o flip em vez de opacity
+
     movimentosCount++;
     movimentos.textContent = movimentosCount;
+}
+
+function trapacaJogar(peca) {
+    if (movimentosCount === 0) {
+        if (modo === "classico") {
+            iniciarTempo();
+        } else if (modo === "tempo") {
+            iniciarBarraProgresso();
+            iniciarTempo();
+        }
+    }
+
+    const carta = peca.querySelector(".carta");
+    
+    const frente = peca.querySelector(".carta-frente");
+    frente.classList.add("amarelo");
+
+    /*
+    setTimeout(() => {
+        frente.classList.remove("amarelo");
+    }, 300);*/
 }
 
 pecas.forEach(peca => {
@@ -178,16 +265,22 @@ function resetarSelecao() {
 }
 
 function virarCarta(peca) {
-  const carta = peca.querySelector(".carta");
+    const carta = peca.querySelector(".carta");
 
-  peca.classList.add("virando");
-  carta.classList.toggle("virada");
+    peca.classList.add("virando");
+    carta.classList.toggle("virada");
 
-  // remove a classe ao fim da transição
-  setTimeout(() => {
-    peca.classList.remove("virando");
-  }, 300); 
+    // remove a classe ao fim da transição
+    setTimeout(() => {
+        peca.classList.remove("virando");
+    }, 300); 
 }
+
+
+/*function trapacaSelecionarCarta(peca) {
+    const frente = peca.querySelector(".carta-frente");
+    frente.classList.add("verde");
+}*/
 
 const tempo = document.querySelector(".tempo");
 let sec = 0, min = 0, segundos = 0;
@@ -301,3 +394,60 @@ function obterDataAtual() {
 function resetarJogo() {
     location.reload();
 }
+
+// ________________________
+// Trapaça
+
+// Seleciona o checkbox
+const checkboxTrapaca = document.getElementById("meuCheckbox");
+
+let trapacaAtiva = false;
+
+checkboxTrapaca.addEventListener("change", (e) => {
+    if (e.target.checked) {
+        ativarModoTrapaca();
+    } else {
+        desativarModoTrapaca();
+    }
+});
+
+function ativarModoTrapaca() {
+    trapacaAtiva = true;
+    const pecas = document.querySelectorAll(".pecas");
+
+    console.log('trapaca:', trapacaAtiva);
+
+    pecas.forEach(peca => {
+        if (peca.classList.contains("mesma-peca")) {
+            return; // não vira se já foi acertada
+        }
+
+        virarCarta(peca);
+    });
+}
+
+function desativarModoTrapaca() {
+    trapacaAtiva = false;
+    const pecas = document.querySelectorAll(".pecas");
+
+    console.log('trapaca:', trapacaAtiva);
+
+    pecas.forEach(peca => {
+        if (peca.classList.contains("mesma-peca")) {
+            return; // não vira se já foi acertada
+        }
+
+        virarCarta(peca);
+    });
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const checkboxTrapaca = document.getElementById("meuCheckbox");
+    if (checkboxTrapaca) {
+        checkboxTrapaca.checked = false;
+    }
+
+    trapacaAtiva = false;
+});
+
+
