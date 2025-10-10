@@ -1,0 +1,111 @@
+:root {
+    --amarelo: #F2EFBD;
+    --roxo: #401234;
+    --rosa: #BE399B;
+    --laranja-claro: #F2C46D;
+    --laranja-escuro: #F09D6C;
+}
+
+@keyframes glow { 
+    from { text-shadow: 0 0 5px #f29e6d; } 
+    to { text-shadow: 0 0 10px #f29e6d; } 
+}
+
+h1 {
+    font-size: 40px; 
+    color: #f29e6d; 
+    animation: glow 1s infinite alternate;
+    padding: 25px;
+}
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#img1 {
+    width: 50px;
+    margin: 9px;
+    filter: invert(100%); 
+    opacity: 0.6;
+    image-rendering: pixelated;
+}
+
+#img2 {
+    width: 40px;
+    margin: 10px;
+    filter: invert(100%);
+    opacity: 0.3; 
+    image-rendering: pixelated;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#central-text {
+    text-align: center;
+}
+
+#main-cadastro {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* garante altura total da tela */
+    min-height: 80vh;
+}
+
+.bloqueado {
+    background-color: rgb(179, 179, 179);
+}
+
+form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding: 20px;
+    gap: 15px;
+    box-shadow: 0 1rem 0 -0.625rem var(--roxo), 1rem 0 0 -0.625rem var(--roxo), -1rem 0 0 -0.625rem var(--roxo), 0 -1rem 0 -0.625rem var(--roxo), 0 1rem 0 -0.3125rem #000000, 1rem 0 0 -0.3125rem #000000, -1rem 0 0 -0.3125rem #000000, 0 -1rem 0 -0.3125rem #000000, 0 0px 0 0.3125rem #000000;
+}
+
+input {
+    font-size: larger;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    padding-left: 5px;
+}
+
+button {
+    font-size: larger;
+    border: none;
+    width: 150px;
+    height: 50px;
+    box-shadow: 0 0.5rem 0 -0.3125rem var(--laranja-escuro), 0.5rem 0 0 -0.3125rem var(--laranja-escuro), -0.5rem 0 0 -0.3125rem var(--laranja-escuro), 0 -0.5rem 0 -0.3125rem var(--laranja-escuro);
+}
+
+.botoes {
+    display: flex;
+    justify-content: center; /* centraliza na horizontal */
+    align-items: center;     /* centraliza na vertical */
+}
+
+#salvar {
+    margin-left: 6vh;
+}
+
+form a img {
+    position: absolute;
+    top: -35px;
+    right: -30px;
+    width: 70px;
+    cursor: pointer;
+}
