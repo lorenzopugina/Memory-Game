@@ -120,7 +120,8 @@ function iniciarBarraProgresso() {
 
         barra.value -= 100 / ((dificuldade * dificuldade) * 2);
 
-        if (barra.value <= 0) {
+        if (verificaVitoria() === 1) jogoAtivo = false;
+        else if (barra.value <= 0) {
             jogoAtivo = false;
             exibirVitoria(2); // Perdeu
             clearInterval(intervalo);
@@ -145,7 +146,7 @@ function verificaPecas(e) {
         trapacaJogar(pecaClicada);
     }
 
-    if(trapacaAtiva === false){
+    else if(trapacaAtiva === false){
         revelarPeca(pecaClicada);
     }
 
@@ -213,11 +214,11 @@ function verificaPecas(e) {
                 resetarSelecao();
             }, 1000);
         }
+    }
 
-        let vitoria = verificaVitoria();
-        if (vitoria === 1) {
-            exibirVitoria(vitoria);
-        }
+    let vitoria = verificaVitoria();
+    if (vitoria === 1) {
+        exibirVitoria(vitoria);
     }
 }
 
@@ -254,6 +255,9 @@ function trapacaJogar(peca) {
     
     const frente = peca.querySelector(".carta-frente");
     frente.classList.add("amarelo");
+
+    movimentosCount++;
+    movimentos.textContent = Math.floor(movimentosCount / 2);
 
     /*
     setTimeout(() => {
@@ -429,6 +433,10 @@ function ativarModoTrapaca() {
 
     console.log('trapaca:', trapacaAtiva);
 
+    if (primeiraPeca) virarCarta(primeiraPeca);
+    if (segundaPeca) virarCarta(segundaPeca);
+    resetarSelecao();
+
     pecas.forEach(peca => {
         if (peca.classList.contains("mesma-peca")) {
             return; // não vira se já foi acertada
@@ -440,11 +448,19 @@ function ativarModoTrapaca() {
 
 function desativarModoTrapaca() {
     trapacaAtiva = false;
+    resetarSelecao();
     const pecas = document.querySelectorAll(".pecas");
 
     console.log('trapaca:', trapacaAtiva);
 
     pecas.forEach(peca => {
+
+        if (peca.querySelector(".carta-frente").classList.contains("amarelo") || peca.querySelector(".carta-frente").classList.contains("verde")) {
+            setTimeout(() => {
+                peca.querySelector(".carta-frente").classList.remove("amarelo", "verde");
+            }, 300);
+        }
+
         if (peca.classList.contains("mesma-peca")) {
             return; // não vira se já foi acertada
         }
@@ -462,4 +478,7 @@ window.addEventListener("DOMContentLoaded", () => {
     trapacaAtiva = false;
 });
 
-
+// Previne o arrastar das imagens
+document.addEventListener("dragstart", function(e) {
+  e.preventDefault();
+});
