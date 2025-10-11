@@ -130,3 +130,68 @@ h3, h4, h5, h6 {
   z-index: -1;
 }
 /* fim do css Animação das nuvens */
+
+
+
+/* Menus de usuario e Ranking */
+
+.subMenu {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px #555;
+    width: 15vw;
+    padding: 5px;
+    display: none; /* escondido inicialmente */
+    text-align: center;
+}
+
+#subMenu_Usuario {
+    top: 80px;
+    left: 20px;
+}
+
+#subMenu_Ranking {
+    top: 80px;
+    right: 15px;
+}
+
+.subMenu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.subMenu li {
+  font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.subMenu li:hover {
+    background-color: var(--laranja-claro);
+}
+
+.subMenu li a {
+    text-decoration: none;
+    color: var(--roxo);
+}
+
+#Menu_usuario {
+    margin-left: 5%;
+}
+
+#Menu_ranking {
+    margin-right: 5%;
+}
+
+#Menu_usuario:hover, #Menu_ranking:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+
+

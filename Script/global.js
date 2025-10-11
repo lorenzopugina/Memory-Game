@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
   // cria as nuvens automaticamente
+document.addEventListener("DOMContentLoaded", () => {
   const nuvens = document.createElement("div");
   nuvens.className = "nuvem";
   nuvens.innerHTML = `
@@ -23,3 +23,32 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.animationDelay = `-${offset}s`;
   });
 });
+
+
+// Abre e fecha os submenus 
+document.addEventListener('DOMContentLoaded', function() {
+    const imgUsuario = document.getElementById('img1');
+    const imgRanking = document.getElementById('img2');
+    const subUsuario = document.getElementById('subMenu_Usuario');
+    const subRanking = document.getElementById('subMenu_Ranking');
+
+    // Abre o submenu ao clicar na imagem
+    imgUsuario.addEventListener('click', function() {
+        subUsuario.style.display = subUsuario.style.display === 'block' ? 'none' : 'block';
+        subRanking.style.display = 'none'; // fecha o outro
+    });
+
+    imgRanking.addEventListener('click', function() {
+        subRanking.style.display = subRanking.style.display === 'block' ? 'none' : 'block';
+        subUsuario.style.display = 'none'; // fecha o outro
+    });
+
+    // Fecha os submenus se clicar fora 
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('#Menu_usuario, #subMenu_Usuario, #Menu_ranking, #subMenu_Ranking')) {
+            subUsuario.style.display = 'none';
+            subRanking.style.display = 'none';
+        }
+    });
+});
+
