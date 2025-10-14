@@ -27,18 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Abre e fecha os submenus 
 document.addEventListener('DOMContentLoaded', function() {
-    const imgUsuario = document.getElementById('img1');
-    const imgRanking = document.getElementById('img2');
+    const MenuUsuario = document.getElementById('Menu_usuario');
+    const MenuRanking = document.getElementById('Menu_ranking');
     const subUsuario = document.getElementById('subMenu_Usuario');
     const subRanking = document.getElementById('subMenu_Ranking');
 
     // Abre o submenu ao clicar na imagem
-    imgUsuario.addEventListener('click', function() {
+    MenuUsuario.addEventListener('click', function() {
         subUsuario.style.display = subUsuario.style.display === 'block' ? 'none' : 'block';
         subRanking.style.display = 'none'; // fecha o outro
     });
 
-    imgRanking.addEventListener('click', function() {
+    MenuRanking.addEventListener('click', function() {
         subRanking.style.display = subRanking.style.display === 'block' ? 'none' : 'block';
         subUsuario.style.display = 'none'; // fecha o outro
     });

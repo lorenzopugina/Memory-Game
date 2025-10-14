@@ -129,9 +129,14 @@ header p {
     display: flex;
     justify-content: center; 
     align-items: center; 
-    margin: -2% 15% 0 0;
+    margin: -1% 15% 0 0;
     border-radius: 5%;
     text-decoration: none;
     font-size: 25px;
+}
+
+#voltar:hover {
+    background-color: var(--laranja-claro);
+    color: var(--roxo);
 }
 

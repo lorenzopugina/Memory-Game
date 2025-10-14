@@ -247,7 +247,7 @@ main {
 .tela-vitoria p {
     color: #f1eebc;
     opacity: 0.7;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
 }
 
 .tela-vitoria .estrela-vitoria {
@@ -295,12 +295,12 @@ main {
 .tela-derrota p {
     color: #f1eebc;
     opacity: 0.7;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
 }
 
 .tela-derrota .triste-derrota {
-    width: 40%;
-    height: 35%;
+    width: 35%;
+    height: 30%;
     opacity: 0.6;
 }
 
@@ -341,6 +341,10 @@ main {
 .sair a {
     text-decoration: none;
     color: #f1eebc;
+}
+
+.sair:hover {
+    background-color: #cb0f1c;
 }
 
 .progresso {

@@ -51,13 +51,13 @@ const imagensDisponiveis = [
 const totalPecas = dificuldade * dificuldade;
 const totalPares = totalPecas / 2;
 
-// aleatoriza o array de imagens (acho q da pra fazer melhor)
+// aleatoriza o array de imagens
 let imagensEscolhidas = imagensDisponiveis.sort(() => Math.random() - 0.5);
 
 // Seleciona apenas o número necessário de imagens
 imagensEscolhidas = imagensEscolhidas.slice(0, totalPares);
 
-// Duplica o array de imagens e coloca dentro do array baralho (operador ... copia os itens do array)
+// Duplica o array de imagens e coloca dentro do array baralho 
 let baralho = [...imagensEscolhidas, ...imagensEscolhidas];
 
 // Aleatoriza as imagens para os pares não ficarem juntos
@@ -89,19 +89,7 @@ baralho.forEach(imgNome => {
 
 });
 
-// Exemplo de carta:
-/*
-        <div class="pecas">
-            <div class="carta">
-                <div class="carta-frente">
-                <img src="../imagens/pecas/mario.png" alt="mario">
-                </div>
-                <div class="carta-verso"></div>
-            </div>
-        </div>
-*/
-
-// Adiciona a barra de progresso se o modo for contra o tempo
+// Adiciona a barra de progresso se o modo for contra o tempo --------------------------------------
 if (modo === "tempo") {
     const jogoTela = document.querySelector(".jogo-tela");
     const barra = document.createElement("progress");
@@ -128,6 +116,8 @@ function iniciarBarraProgresso() {
         }
     }, 1000);
 }
+
+//------------------------------------------------------------------------------------------------------
 
 // Lógica de revelação e comparação
 const pecas = document.querySelectorAll(".pecas");
@@ -250,19 +240,12 @@ function trapacaJogar(peca) {
             iniciarTempo();
         }
     }
-
-    const carta = peca.querySelector(".carta");
     
     const frente = peca.querySelector(".carta-frente");
     frente.classList.add("amarelo");
 
     movimentosCount++;
     movimentos.textContent = Math.floor(movimentosCount / 2);
-
-    /*
-    setTimeout(() => {
-        frente.classList.remove("amarelo");
-    }, 300);*/
 }
 
 pecas.forEach(peca => {
@@ -292,15 +275,10 @@ function virarCarta(peca) {
     }, 300); 
 }
 
-
-/*function trapacaSelecionarCarta(peca) {
-    const frente = peca.querySelector(".carta-frente");
-    frente.classList.add("verde");
-}*/
-
 const tempo = document.querySelector(".tempo");
 let sec = 0, min = 0, segundos = 0;
 
+// -------------------------------------------------------------------------------------------------------------
 function iniciarTempo() {
     intervalo = setInterval(() => {
         segundos++;
@@ -321,6 +299,7 @@ function atualizarTempo() {
     }
     tempo.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }
+//--------------------------------------------------------------------------------------------------------------
 
 function verificaVitoria() {
     const tabuleiro = document.querySelector(".campo");
@@ -337,6 +316,7 @@ function desistir_jogo() {
     exibirVitoria(2);
 }
 
+// ---------------------------------------------------------------------------------------------------------
 function exibirVitoria(vitoria) {
     pararTempo();
     setTimeout(() => {
@@ -407,11 +387,11 @@ function obterDataAtual() {
     return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
 }
 
+//--------------------------------------------------------------------------------------------------------------------
 function resetarJogo() {
     location.reload();
 }
 
-// ________________________
 // Trapaça
 
 // Seleciona o checkbox
