@@ -94,8 +94,8 @@ button {
 
 .botoes {
     display: flex;
-    justify-content: center; /* centraliza na horizontal */
-    align-items: center;     /* centraliza na vertical */
+    justify-content: center; 
+    align-items: center;    
 }
 
 #salvar {
@@ -108,4 +108,16 @@ form a img {
     right: -30px;
     width: 70px;
     cursor: pointer;
+}
+
+#salvar:hover {
+    cursor: pointer;
+    color: var(--roxo);
+    background-color: var(--laranja-claro);
+}
+
+#cancelar:hover {
+    cursor: pointer;
+    color: #97141d;
+    background-color: var(--laranja-claro);
 }

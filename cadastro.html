@@ -39,19 +39,20 @@
     </div>
 
     <main id="main-cadastro">
-        <form class="roxo">
+        <form class="roxo" id="campos-cadastro">
             <a href="Index.html"><img src="imagens/return.png" alt="botão de retorno"></a>
             <h2>Cadastro</h2>
-            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
+            <input type="text" id="nome" name="nome" placeholder="Nome completo" required minlength="3" title="Mínimo 3 caracteres" required>
             <input type="text" id="data_nascimento" onfocus="(this.type='date')" onblur="(this.type='text')" name="data_nascimento" placeholder="Data de nascimento" required>
-            <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
+            <input type="text" id="cpf" name="cpf" placeholder="CPF" required pattern="\d{11}" title="Digite 11 números do CPF">
+            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required pattern="\d{10,11}" title="Digite no formato DDD + número">
             <input type="email" id="email" name="email" placeholder="Email" required>
-            <input type="text" id="username" name="username" placeholder="Apelido" required>
-            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+            <input type="text" id="username" name="username" placeholder="Apelido" required minlength="3" title="Mínimo 3 caracteres">
+            <input type="password" id="senha" name="senha" placeholder="Senha" required minlength="6" title="Mínimo 6 caracteres">
             <button type="submit" class="laranja-escuro">Cadastrar</button>
         </form>
     </main>
+    <script src="Script/validacao.js"></script>
     </body>
 
 </html>

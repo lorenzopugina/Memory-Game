@@ -51,10 +51,10 @@
             <input type="text" class="bloqueado" id="data_nascimento" name="data_nascimento" placeholder="Data de nascimento" readonly>
 
             <!-- Campos editáveis -->
-            <input type="text" id="nome" name="nome" placeholder="Nome completo" required>
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
+            <input type="text" id="nome" name="nome" placeholder="Nome completo" required minlength="3" title="Mínimo 3 caracteres" required>
+            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required pattern="\d{10,11}" title="Digite no formato DDD + número">
             <input type="email" id="email" name="email" placeholder="Email" required>
-            <input type="password" id="senha" name="senha" placeholder="Senha" required>
+            <input type="password" id="senha" name="senha" placeholder="Senha" required minlength="6" title="Mínimo 6 caracteres">
 
             <div class="botoes">
                 <button type="button" class="laranja-escuro" id="cancelar">Cancelar</button>

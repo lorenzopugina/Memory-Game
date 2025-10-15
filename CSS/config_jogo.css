@@ -97,11 +97,6 @@
         font-size: 15px; 
     }
 
-    .bloco_config label:hover {
-        color: #f29e6d;
-        cursor: pointer;
-    }
-
     .opcoes {
         background-color: var(--laranja-escuro);
         margin-bottom: 4.5vw;

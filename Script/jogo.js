@@ -26,7 +26,7 @@ switch (dificuldade) {
 
 // Lista de imagens disponíveis (adicionar todas)
 const imagensDisponiveis = [
-    "estrela.png",
+    "carro.png",
     "cogumelo.png",
     "luigi.png",
     "marca.png",
@@ -45,6 +45,19 @@ const imagensDisponiveis = [
     "meowth.png",
     "megaman.png",
     "yoshi.png",
+    "uva.png",
+    "velocimetro.png",
+    "moto.png",
+    "moeda.png",
+    "melancia.png",
+    "lua.png",
+    "laco.png",
+    "esqueleto.png",
+    "coxa.png",
+    "chave.png",
+    "cerveja.png",
+    "castelo.png",
+    "bolo.png"
 ];
 
 // Calcula quantas peças terão
