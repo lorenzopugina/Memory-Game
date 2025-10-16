@@ -24,7 +24,7 @@ switch (dificuldade) {
     default: pecasContainer.style.gap = "10px"; break;
 }
 
-// Lista de imagens disponíveis (adicionar todas)
+// Lista de imagens disponíveis
 const imagensDisponiveis = [
     "carro.png",
     "cogumelo.png",
@@ -84,11 +84,9 @@ baralho.forEach(imgNome => {
     const carta = document.createElement("div");
     carta.classList.add("carta");
 
-    // Verso (parte de trás da carta)
     const verso = document.createElement("div");
     verso.classList.add("carta-verso");
 
-    // Frente (imagem verdadeira)
     const frente = document.createElement("div");
     frente.classList.add("carta-frente");
     const img = document.createElement("img");
@@ -166,11 +164,10 @@ function verificaPecas(e) {
     const valorPrimeira = getPecaValue(primeiraPeca);
     const valorSegunda = getPecaValue(segundaPeca);
 
-    //here: entrar
     if(trapacaAtiva === true) {
         if(valorPrimeira === valorSegunda){
             console.log("TRAPACA jogador ACERTOU a combinacao");
-            // vou comecar codar agora a excessao de trapaca ativa
+            
             primeiraPeca.classList.add("mesma-peca");
             segundaPeca.classList.add("mesma-peca");
 
@@ -227,7 +224,6 @@ function verificaPecas(e) {
 
 let movimentosCount = 0;
 
-//here
 function revelarPeca(peca) {
     if (movimentosCount === 0) {
         if (modo === "classico") {
@@ -238,7 +234,7 @@ function revelarPeca(peca) {
         }
     }
 
-    virarCarta(peca); // agora usamos o flip em vez de opacity
+    virarCarta(peca); 
 
     movimentosCount++;
     movimentos.textContent = Math.floor(movimentosCount / 2);
