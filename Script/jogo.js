@@ -119,7 +119,7 @@ function iniciarBarraProgresso() {
     intervalo = setInterval(() => {
         if (!jogoAtivo) return;
 
-        barra.value -= 100 / ((dificuldade * dificuldade) * 2);
+        barra.value -= dificuldade == 2 ? 100/10 : dificuldade == 4 ? 100/50 : dificuldade == 6 ? 100/150 : 100/300;
 
         if (verificaVitoria() === 1) jogoAtivo = false;
         else if (barra.value <= 0) {
