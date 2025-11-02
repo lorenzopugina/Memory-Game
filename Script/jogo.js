@@ -90,7 +90,7 @@ baralho.forEach(imgNome => {
     const frente = document.createElement("div");
     frente.classList.add("carta-frente");
     const img = document.createElement("img");
-    img.src = `../imagens/pecas/${imgNome}`;
+    img.src = `./imagens/pecas/${imgNome}`;
     frente.appendChild(img);
 
     carta.appendChild(frente);
@@ -346,7 +346,7 @@ function exibirVitoria(vitoria) {
 
             tela_vitoria.innerHTML = `
                 <h2>Você Venceu!</h2>
-                <img src="../imagens/estrelaVitoria.gif" alt="Estrela de Vitória" class="estrela-vitoria">
+                <img src="./imagens/estrelaVitoria.gif" alt="Estrela de Vitória" class="estrela-vitoria">
                 <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
                 <br>Movimentos: ${movimentosCount}
                 <br>Modo: ${tituloModo.textContent}
@@ -373,7 +373,7 @@ function exibirVitoria(vitoria) {
 
             tela_derrota.innerHTML = `
                 <h2>Você Perdeu</h2>
-                <img src="../imagens/triste.gif" alt="Cara Triste" class="triste-derrota">
+                <img src="./imagens/triste.gif" alt="Cara Triste" class="triste-derrota">
                 <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
                 <br>Movimentos: ${movimentosCount}
                 <br>Modo: ${tituloModo.textContent}
