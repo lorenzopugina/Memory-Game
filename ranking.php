@@ -28,15 +28,15 @@
 
     <div id="subMenu_Usuario" class="subMenu">
         <ul>
-        <li><a href="historico.html">Histórico</a></li>
-        <li><a href="alterar_config_usuario.html">Configurações da Conta</a></li>
-        <li><a href="Index.html">Sair</a></li>
+        <li><a href="historico.php">Histórico</a></li>
+        <li><a href="alterar_config_usuario.php">Configurações da Conta</a></li>
+        <li><a href="Index.php">Sair</a></li>
         </ul>
     </div>
 
     <div id="subMenu_Ranking" class="subMenu">
         <ul>
-        <li><a href="config_jogo.html">Configurações do Jogo</a></li>
+        <li><a href="config_jogo.php">Configurações do Jogo</a></li>
         </ul>
     </div>
 
@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <a href="config_jogo.html" class="rosa" id="voltar">Voltar</a>
+    <a href="config_jogo.php" class="rosa" id="voltar">Voltar</a>
 
 </body>
 

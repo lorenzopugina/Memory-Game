@@ -29,21 +29,21 @@
 
     <div id="subMenu_Usuario" class="subMenu">
         <ul>
-        <li><a href="historico.html">Histórico</a></li>
-        <li><a href="Index.html">Sair</a></li>
+        <li><a href="historico.php">Histórico</a></li>
+        <li><a href="Index.php">Sair</a></li>
         </ul>
     </div>
 
     <div id="subMenu_Ranking" class="subMenu">
         <ul>
-        <li><a href="ranking.html">Ranking</a></li>
-        <li><a href="config_jogo.html">Configurações do Jogo</a></li>
+        <li><a href="ranking.php">Ranking</a></li>
+        <li><a href="config_jogo.php">Configurações do Jogo</a></li>
         </ul>
     </div>
 
     <main id="main-cadastro">
         <form class="roxo" id="form-editar">
-            <a href="config_jogo.html"><img src="imagens/return.png" alt="botão de retorno"></a>
+            <a href="config_jogo.php"><img src="imagens/return.png" alt="botão de retorno"></a>
             <h2>Editar Dados</h2>
 
             <!-- Campos fixos (não editáveis) -->
