@@ -41,13 +41,13 @@ redirecionarSeLogado(); // Se estiver logado, redireciona para o jogo
 
     <div id="subMenu_Ranking" class="subMenu">
         <ul>
-        <li><a href="ranking.html">Ranking</a></li>
+        <li><a href="ranking.php">Ranking</a></li>
         </ul>
     </div>
 
     <main id="main-cadastro">
         <form class="roxo" id="campos-cadastro" method="post" action="BD/cadastrar.php">
-            <a href="Index.html"><img src="imagens/return.png" alt="botão de retorno"></a>
+            <a href="Index.php"><img src="imagens/return.png" alt="botão de retorno"></a>
             <h2>Cadastro</h2>
             <input type="text" id="nome" name="nome" placeholder="Nome completo" required minlength="3" title="Mínimo 3 caracteres" required>
             <input type="text" id="data_nascimento" onfocus="(this.type='date')" onblur="(this.type='text')" name="data_nascimento" placeholder="Data de nascimento" required>

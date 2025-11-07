@@ -94,6 +94,6 @@
     </div>
   </div>
 
-  <a href="config_jogo.html" class="rosa voltar flex-center">Voltar</a>
+  <a href="config_jogo.php" class="rosa voltar flex-center">Voltar</a>
 </body>
 </html>
