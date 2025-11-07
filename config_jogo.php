@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!--config_jogo.php--> 
+<?php
+    require 'BD/verifica_sessao.php';
+?>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">

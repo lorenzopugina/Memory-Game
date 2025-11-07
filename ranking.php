@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!-- ranking.php-->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -61,6 +61,9 @@
             </div>
 
             <?php
+                require 'BD/verifica_sessao.php';
+                
+
                 $facilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 1 ORDER BY movimentos ASC, tempo ASC");
                 $facilStmt->execute();
                 $partidasFaceis = $facilStmt->fetchAll(PDO::FETCH_ASSOC);

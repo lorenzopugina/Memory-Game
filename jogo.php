@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!--jogo.php-->
+<?php
+    require 'Script/verifica_sessao.php';
+?>
 
 <html lang="pt-br">
 <head>

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<!-- historico.php -->
+<?php
+    require 'BD/verifica_sessao.php';
+?>
+
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +15,8 @@
   <link rel="stylesheet" href="CSS/historico.css">
   <script src="Script/global.js"></script>
 </head>
+
+
 
 <body>
   <div class="header flex-center">

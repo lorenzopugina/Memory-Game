@@ -1,6 +1,7 @@
-
+-- BD/criacaoBD.sql
 -- Primeiro crie o BD executando esse comando
 CREATE DATABASE memorygame
+
 
 
 -- depois de criar o BD, execute esse script para criar as tabelas
