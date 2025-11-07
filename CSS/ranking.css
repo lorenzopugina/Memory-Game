@@ -42,6 +42,7 @@ header p {
 }
 
 .background{
+    position: relative;
     margin: 5% auto 0 auto;
     display: flex;
     height: 70vh;
@@ -59,7 +60,8 @@ header p {
 }
 
 .tabela {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.5vh;
     width: 90%;
     margin: 5% auto;
@@ -67,6 +69,7 @@ header p {
     overflow-y: auto; 
     scrollbar-width: none; /* oculta barra de rolagem Firefox */
     -ms-overflow-style: none; /* oculta rolagem IE*/
+    position: relative;
 }
 
 /* oculta rolagem Chrome, Edge, Safari */
@@ -79,12 +82,14 @@ header p {
   grid-template-columns: 0.5fr 2fr 1.5fr 1fr 1fr 1fr; 
   color: var(--amarelo);
   padding: 5px;
+  height: 35px;
   border-radius: 4px;
   text-align: center;
 }
 
 .linha div {
     display: flex;
+    height: 100%;
     justify-content: center;
     align-items: center;
 }
@@ -123,16 +128,16 @@ header p {
 }
 
 #voltar{
+    position: relative;
     height: 5vh;
     width: 10vw;
     float: right;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
+    text-align: center; 
     margin: -1% 15% 0 0;
     border-radius: 5%;
     text-decoration: none;
     font-size: 25px;
+    z-index: 999;
 }
 
 #voltar:hover {
@@ -140,3 +145,15 @@ header p {
     color: var(--roxo);
 }
 
+.filtro {
+    position: absolute;
+    top: 1%;
+    right: 5%;
+    width: 8%;
+    height: 7%;
+    padding: 10px;
+    font-size: 0.9rem;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 50;
+}

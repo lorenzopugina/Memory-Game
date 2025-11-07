@@ -24,6 +24,7 @@ CREATE TABLE partida (
     movimentos int,
     tempo int not null,
     trapaca BOOLEAN DEFAULT FALSE,
+    modo CHAR(1) NOT NULL,
     dataPartida DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
