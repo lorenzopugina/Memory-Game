@@ -1,16 +1,16 @@
 <?php
-// BD/autenticar.php
 require 'conexao.php';
 
 function autenticarUsuario($username, $senha) {
-    global $conn;
     
+     global $conn;
+
     try {
-        $stmt = $conn->prepare("SELECT id, senha, apelido FROM usuarios WHERE apelido = :username");
+        $stmt = $conn->prepare("SELECT id, apelido, senha FROM usuarios WHERE apelido = :username");
         $stmt->execute([':username' => $username]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($usuario && password_verify($senha, $usuario['senha'])) {
+        if (!empty($usuario) && $usuario['senha'] == $senha) {
             // Login bem-sucedido
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_username'] = $usuario['apelido'];

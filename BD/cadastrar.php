@@ -11,7 +11,7 @@ $resposta = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if(count($resposta) > 0){
     // CPF já cadastrado
-    echo "<script>alert('CPF já cadastrado!'); window.location.href = '../cadastro.html';</script>";
+    echo "<script>alert('CPF já cadastrado!'); window.location.href = '../cadastro.php';</script>";
     exit;
 } else {
     $nome = $_POST['nome'] ?? '';
@@ -23,11 +23,9 @@ if(count($resposta) > 0){
 
     // Validação dos campos obrigatórios
     if (!$nome || !$cpf || !$username || !$senha) {
-        echo "<script>alert('Preencha os campos obrigatórios'); window.location.href = '../cadastro.html';</script>";
+        echo "<script>alert('Preencha os campos obrigatórios'); window.location.href = '../cadastro.php';</script>";
         exit;
     }
-
-    $hash = password_hash($senha, PASSWORD_DEFAULT);
 
     $stmt = $conn->prepare("INSERT INTO usuarios (nome, dataNasc, CPF, telefone, email, apelido, senha)
                                     VALUES (:nome, :data, :cpf, :telefone, :email, :apelido, :senha)");
@@ -39,10 +37,10 @@ if(count($resposta) > 0){
         ':telefone' => $telefone,
         ':email' => $email,
         ':apelido' => $username,
-        ':senha' => $hash
+        ':senha' => $senha
     ]);
 
-    echo "<script>alert('Cadastrado com sucesso!'); window.location.href = '../login.html';</script>";
+    echo "<script>alert('Cadastrado com sucesso!'); window.location.href = '../login.php';</script>";
     exit;
 }
 ?>

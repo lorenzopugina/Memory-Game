@@ -1,6 +1,5 @@
--- BD/criacaoBD.sql
 -- Primeiro crie o BD executando esse comando
-CREATE DATABASE memorygame
+CREATE DATABASE memorygame;
 
 
 
@@ -26,7 +25,30 @@ CREATE TABLE partida (
     tempo int not null,
     trapaca BOOLEAN DEFAULT FALSE,
     modo CHAR(1) NOT NULL,
+    venceu BOOLEAN DEFAULT FALSE,
     dataPartida DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
+
+
+
+--Inserts para base
+
+INSERT INTO usuarios (nome, dataNasc, CPF, telefone, email, apelido, senha)
+VALUES 
+('Bernaros Mendes', '2000-05-15', '12345678901', '(11) 99999-0001', 'bernardo@mail.com', 'bernas', 'senha123'),
+('Marina Souza', '1995-10-22', '23456789012', '(21) 98888-0002', 'marina@mail.com', 'mari_s', 'marina!2024'),
+('Carlos Almeida', '1988-03-09', '34567890123', '(31) 97777-0003', 'carlos@mail.com', 'calmeida', 'c@rlos88'),
+('Juliana Costa', '1999-07-30', '45678901234', '(41) 96666-0004', 'juliana@mail.com', 'ju_c', 'ju99pass'),
+('Felipe Torres', '2002-12-12', '56789012345', '(51) 95555-0005', 'felipe@mail.com', 'felipet', 'ftorres#12');
+
+
+INSERT INTO partida (id_usuario, dificuldade, movimentos, tempo, trapaca, modo, venceu)
+VALUES
+(1, 'F', 85, 300, FALSE, 'N', TRUE),
+(2, 'M', 120, 480, FALSE, 'T', FALSE),
+(3, 'D', 60, 250, TRUE, 'N', FALSE),
+(4, 'F', 90, 360, FALSE, 'T', TRUE),
+(5, 'M', 110, 400, TRUE, 'N', TRUE);
+
 

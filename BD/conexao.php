@@ -1,5 +1,4 @@
 <?php
-// BD/conexao.php
     $sname = "localhost";
     $uname = "root";
     $pwd = "";
