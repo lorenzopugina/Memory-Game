@@ -3,7 +3,7 @@ require 'conexao.php';
 
 function autenticarUsuario($username, $senha) {
     
-     global $conn;
+    global $conn;
 
     try {
         $stmt = $conn->prepare("SELECT id, apelido, senha FROM usuarios WHERE apelido = :username");

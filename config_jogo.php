@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--config_jogo.php--> 
 <?php
-    require 'BD/verifica_sessao.php';
+    require 'Script/verifica_sessao.php';
 ?>
 
 <html lang="pt-br">

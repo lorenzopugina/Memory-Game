@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- historico.php -->
 <?php
-    require 'BD/verifica_sessao.php';
+    require 'Script/verifica_sessao.php';
 ?>
 
 <html lang="pt-br">
