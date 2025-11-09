@@ -1,5 +1,6 @@
+<?php require 'BD/conexao.php' ?>
+
 <!DOCTYPE html>
-<!-- ranking.php-->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
     <link rel="stylesheet" href="CSS/ranking.css">
     <script src="Script/global.js"></script>
     <script src="Script/ranking.js"></script>
-    <?php require 'BD/conexao.php'; ?>
+    
 </head>
 
 <body>
@@ -30,7 +31,7 @@
         <ul>
         <li><a href="historico.php">Histórico</a></li>
         <li><a href="alterar_config_usuario.php">Configurações da Conta</a></li>
-        <li><a href="Index.php">Sair</a></li>
+        <li><a href="BD/logout.php">Sair</a></li>
         </ul>
     </div>
 
@@ -61,9 +62,6 @@
             </div>
 
             <?php
-                require 'BD/verifica_sessao.php';
-                
-
                 $facilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 1 ORDER BY movimentos ASC, tempo ASC");
                 $facilStmt->execute();
                 $partidasFaceis = $facilStmt->fetchAll(PDO::FETCH_ASSOC);
