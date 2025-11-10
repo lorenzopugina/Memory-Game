@@ -1,12 +1,6 @@
+<?php require 'BD/verificaSessao.php'; ?>
+
 <!DOCTYPE html>
-<!--cadastro.php-->
-
-<?php
-// cadastro.php
-require 'BD/autenticar.php';
-redirecionarSeLogado(); // Se estiver logado, redireciona para o jogo
-?>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">

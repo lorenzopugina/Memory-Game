@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<!-- historico.php -->
-<?php
-    require 'Script/verifica_sessao.php';
-?>
+<?php require 'BD/verificaSessao.php'; ?>
 
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">

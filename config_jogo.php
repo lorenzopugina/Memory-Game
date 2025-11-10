@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<!--config_jogo.php--> 
-<?php
-    require 'Script/verifica_sessao.php';
-?>
+<?php require 'BD/verificaSessao.php'; ?>
 
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -35,7 +32,7 @@
         <ul>
         <li><a href="historico.php">Histórico</a></li>
         <li><a href="alterar_config_usuario.php">Configurações da Conta</a></li>
-        <li><a href="Script/logout.php">Sair</a></li>
+        <li><a href="BD/logout.php">Sair</a></li>
         </ul>
     </div>
 
@@ -75,3 +72,5 @@
     </main>
 
 </body>
+
+</html>

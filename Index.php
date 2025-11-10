@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<!--index.php-->
-
-<?php
-// index.php
-require 'BD/autenticar.php';
-redirecionarSeLogado();
-?>
-
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">

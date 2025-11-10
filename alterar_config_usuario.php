@@ -1,5 +1,6 @@
+<?php require 'BD/verificaSessao.php'; ?>
+
 <!DOCTYPE html>
-<!--alterar_config_usuario.php-->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
     <div id="subMenu_Usuario" class="subMenu">
         <ul>
         <li><a href="historico.php">Histórico</a></li>
-        <li><a href="Index.php">Sair</a></li>
+        <li><a href="BD/logout.php">Sair</a></li>
         </ul>
     </div>
 
