@@ -38,7 +38,7 @@
             ':senha' => $senha
         ]);
 
-        echo "<script>alert('Cadastrado com sucesso!'); window.location.href = '../login.php';</script>";
+        echo "<script>alert('Cadastrado com sucesso!'); window.location.href = '../index.php';</script>";
         exit;
     }
 ?>

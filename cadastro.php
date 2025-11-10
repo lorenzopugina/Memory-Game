@@ -1,5 +1,3 @@
-<?php require 'BD/verificaSessao.php'; ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
