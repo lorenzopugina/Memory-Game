@@ -35,7 +35,7 @@
         <ul>
         <li><a href="historico.php">Histórico</a></li>
         <li><a href="alterar_config_usuario.php">Configurações da Conta</a></li>
-        <li><a href="Index.php">Sair</a></li>
+        <li><a href="Script/logout.php">Sair</a></li>
         </ul>
     </div>
 

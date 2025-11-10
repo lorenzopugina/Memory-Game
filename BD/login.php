@@ -11,7 +11,7 @@ if (!$username || !$senha) {
 }
 
 if (autenticarUsuario($username, $senha)) {
-    echo "<script>alert('Login realizado com sucesso!'); window.location.href = '../jogo.php';</script>";
+    echo "<script>alert('Login realizado com sucesso!'); window.location.href = '../config_jogo.php';</script>";
 } else {
     echo "<script>alert('Usuário ou senha incorretos!'); window.location.href = '../index.php';</script>";
 }

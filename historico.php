@@ -14,9 +14,8 @@
   <link rel="stylesheet" href="CSS/global.css">
   <link rel="stylesheet" href="CSS/historico.css">
   <script src="Script/global.js"></script>
+  <script src="Script/historico.js"></script>
 </head>
-
-
 
 <body>
   <div class="header flex-center">
@@ -30,7 +29,7 @@
 
   <div class="roxo background">
     <div class="roxo username">
-      <p>UserName</p>
+      <?php echo "{$_SESSION['usuario_username']}"; ?>
     </div>
     
     <div class="tabela">
@@ -42,55 +41,17 @@
         <div>TABULEIRO</div>
       </div>
 
-      <div class="linha text-center">
-        <div>16/02/25</div>
-        <div>Classico</div>
-        <div>20</div>
-        <div>10</div>
-        <div>8x8</div>
-      </div>
-      <div class="linha text-center">
-        <div>15/02/25</div>
-        <div>Classico</div>
-        <div>88</div>
-        <div>8</div>
-        <div>6x6</div>
-      </div>
-      <div class="linha text-center">
-        <div>15/02/25</div>
-        <div>Contra o Tempo</div>
-        <div>980</div>
-        <div>99</div>
-        <div>4x4</div>
-      </div>
-      <div class="linha text-center">
-        <div>13/02/25</div>
-        <div>Classico</div>
-        <div>1</div>
-        <div>2</div>
-        <div>2x2</div>
-      </div>
-      <div class="linha text-center">
-        <div>13/02/25</div>
-        <div>Classico</div>
-        <div>1</div>
-        <div>2</div>
-        <div>2x2</div>
-      </div>
-      <div class="linha text-center">
-        <div>13/02/25</div>
-        <div>Classico</div>
-        <div>1</div>
-        <div>2</div>
-        <div>2x2</div>
-      </div>
-      <div class="linha text-center">
-        <div>13/02/25</div>
-        <div>Classico</div>
-        <div>1</div>
-        <div>2</div>
-        <div>2x2</div>
-      </div>
+      <?php
+        $stmt = $conn->prepare("SELECT *, DATE_FORMAT(dataPartida, '%d/%m/%Y') AS dataPartidaFormatada FROM partida WHERE id_usuario = {$_SESSION['usuario_id']} ORDER BY dataPartida DESC");
+        $stmt->execute();
+        $partidas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      ?>
+
+      <script>
+        const partidas = <?php echo json_encode($partidas); ?>;
+        exibirHistorico(partidas);
+      </script>
+
     </div>
   </div>
 

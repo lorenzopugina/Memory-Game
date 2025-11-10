@@ -1,5 +1,5 @@
 <?php
-require 'conexao.php';
+require_once 'conexao.php';
 
 function autenticarUsuario($username, $senha) {
     
@@ -42,14 +42,14 @@ function verificarSessao() {
     return true;
 }
 
-function redirecionarSeNaoLogado($paginaLogin = '../index.php') {
+function redirecionarSeNaoLogado($paginaLogin = '../memory-game/index.php') {
     if (!verificarSessao()) {
         header('Location: ' . $paginaLogin);
         exit;
     }
 }
 
-function redirecionarSeLogado($paginaPrincipal = '../jogo.php') {
+function redirecionarSeLogado($paginaPrincipal = 'config_jogo.php') {
     if (verificarSessao()) {
         header('Location: ' . $paginaPrincipal);
         exit;

@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="CSS/ranking.css">
     <script src="Script/global.js"></script>
     <script src="Script/ranking.js"></script>
-    <?php require 'BD/conexao.php'; ?>
+    <?php
+        require 'Script/verifica_sessao.php';
+    ?>
 </head>
 
 <body>
@@ -61,9 +63,6 @@
             </div>
 
             <?php
-                require 'BD/verifica_sessao.php';
-                
-
                 $facilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 1 ORDER BY movimentos ASC, tempo ASC");
                 $facilStmt->execute();
                 $partidasFaceis = $facilStmt->fetchAll(PDO::FETCH_ASSOC);

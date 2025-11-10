@@ -13,7 +13,6 @@
     }
     
 
-    session_name('minha_sessao_app'); // opcional
     $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
     session_set_cookie_params([
         'lifetime' => 0,          // cookie de sessão (apaga ao fechar navegador)

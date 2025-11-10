@@ -354,7 +354,7 @@ function exibirVitoria(vitoria) {
                 <br>Data: ${obterDataAtual()}</p>
                 <button onclick="resetarJogo()">Jogar Novamente</button>
             `;
-            sair.innerHTML = `<a href="config_jogo.html">Sair</a>`;
+            sair.innerHTML = `<a href="config_jogo.php">Sair</a>`;
             sair.classList.add("sair");
 
         } else if (vitoria === 2) {
@@ -381,7 +381,7 @@ function exibirVitoria(vitoria) {
                 <br>Data: ${obterDataAtual()}</p>
                 <button onclick="resetarJogo()">Jogar Novamente</button>
             `;
-            sair.innerHTML = `<a href="config_jogo.html">Sair</a>`;
+            sair.innerHTML = `<a href="config_jogo.php">Sair</a>`;
             sair.classList.add("sair");
         }}, 500);
 }
