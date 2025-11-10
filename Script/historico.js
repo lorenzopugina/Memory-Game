@@ -10,7 +10,7 @@ function criarLinhaHistorico(element) {
     linha.classList.add("linha");
     linha.classList.add("text-center");
 
-    if (element['resultado']=='W') {
+    if (element['venceu']) {
         linha.classList.add("vitoria");
     }
     else {
@@ -22,7 +22,7 @@ function criarLinhaHistorico(element) {
         <div>${element['modo']==1? 'Clássico' : 'Contra o Tempo'}</div>
         <div>${formatarTempo(element['tempo'])}</div>
         <div>${element['movimentos']}</div>
-        <div>${element['dificuldade' ]==1 ? '2x2' : element['dificuldade']==2 ? '4x4' : element['dificuldade']==3 ? '6x6' : '8x8'}</div>
+        <div>${element['dificuldade' ]=='F' ? '2x2' : element['dificuldade']=='M' ? '4x4' : element['dificuldade']=='D' ? '6x6' : '8x8'}</div>
     `;
     tabela.appendChild(linha);
 }

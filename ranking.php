@@ -62,19 +62,19 @@
             </div>
 
             <?php
-                $facilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 1 ORDER BY movimentos ASC, tempo ASC");
+                $facilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 'F' ORDER BY movimentos ASC, tempo ASC");
                 $facilStmt->execute();
                 $partidasFaceis = $facilStmt->fetchAll(PDO::FETCH_ASSOC);
 
-                $medioStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 2 ORDER BY movimentos ASC, tempo ASC");
+                $medioStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 'M' ORDER BY movimentos ASC, tempo ASC");
                 $medioStmt->execute();
                 $partidasMedias = $medioStmt->fetchAll(PDO::FETCH_ASSOC);
 
-                $dificilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 3 ORDER BY movimentos ASC, tempo ASC");
+                $dificilStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 'D' ORDER BY movimentos ASC, tempo ASC");
                 $dificilStmt->execute();
                 $partidasDificeis = $dificilStmt->fetchAll(PDO::FETCH_ASSOC);
 
-                $extremoStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 4 ORDER BY movimentos ASC, tempo ASC");
+                $extremoStmt = $conn->prepare("SELECT * FROM partida WHERE dificuldade = 'E' ORDER BY movimentos ASC, tempo ASC");
                 $extremoStmt->execute();
                 $partidasExtremos = $extremoStmt->fetchAll(PDO::FETCH_ASSOC);
 

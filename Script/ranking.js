@@ -6,16 +6,16 @@ function exibirRanking(partidas, modo, usuarios) {
     let contador = 1;
     partidas.forEach(element => {
         if (modo === "facil")
-            if (Number(element['dificuldade'])==1)
+            if (element['dificuldade']=='F')
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "medio")
-            if (Number(element['dificuldade'])==2)
+            if (element['dificuldade']=='M')
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "dificil")
-            if (Number(element['dificuldade'])==3)
+            if (element['dificuldade']=='D')
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "extremo")
-            if (Number(element['dificuldade'])==4)
+            if (element['dificuldade']=='E')
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "todas")
             criarLinhaRanking(element, usuarios, contador++);
@@ -23,6 +23,8 @@ function exibirRanking(partidas, modo, usuarios) {
 }
 
 function criarLinhaRanking(element, usuarios, contador) {
+    if (contador > 10) return; // Limita a exibição aos top 10
+
     const tabela = document.querySelector(".tabela");
     const linha = document.createElement("div");
     linha.classList.add("linha");
@@ -44,10 +46,10 @@ function criarLinhaRanking(element, usuarios, contador) {
     linha.innerHTML = `
         <div>${contador}</div>
         <div>${usuario['apelido']}</div>
-        <div>${element['modo']==1? 'Clássico' : 'Contra o Tempo'}</div>
+        <div>${element['modo']=='N'? 'Clássico' : 'Contra o Tempo'}</div>
         <div>${formatarTempo(element['tempo'])}</div>
         <div>${element['movimentos']}</div>
-        <div>${element['dificuldade' ]==1 ? '2x2' : element['dificuldade']==2 ? '4x4' : element['dificuldade']==3 ? '6x6' : '8x8'}</div>
+        <div>${element['dificuldade' ]=='F' ? '2x2' : element['dificuldade']=='M' ? '4x4' : element['dificuldade']=='D' ? '6x6' : '8x8'}</div>
     `;
     tabela.appendChild(linha);
 }
