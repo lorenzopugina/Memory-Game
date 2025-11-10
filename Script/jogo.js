@@ -11,6 +11,25 @@ const dificuldade_texto = params.get("Dificuldade") === "2" ? "Fácil" :
                         params.get("Dificuldade") === "4" ? "Médio" :
                         params.get("Dificuldade") === "6" ? "Difícil" : "Muito Difícil"; 
 
+// usuário corrente (carregado via whoami.php)
+let currentUser = { id: null, apelido: null, logged: false };
+
+async function loadCurrentUser() {
+    try {
+        const resp = await fetch('BD/whoami.php');
+        if (!resp.ok) throw new Error('Falha ao obter usuário');
+        const j = await resp.json();
+        if (j.logged) {
+            currentUser = { id: j.id || null, apelido: j.apelido || null, logged: true };
+        } else {
+            currentUser = { id: null, apelido: null, logged: false };
+        }
+    } catch (err) {
+        console.warn('Erro loadCurrentUser:', err);
+        currentUser = { id: null, apelido: null, logged: false };
+    }
+}
+
 // Define o título do jogo conforme o modo selecionado
 const tituloModo = document.getElementById("Modo");
 tituloModo.textContent = modo === "classico" ? "Clássico" : "Contra o tempo";
@@ -344,7 +363,7 @@ function exibirVitoria(vitoria) {
             jogoContainer.appendChild(tela_vitoria);
             jogoContainer.appendChild(sair);
 
-            tela_vitoria.innerHTML = `
+                tela_vitoria.innerHTML = `
                 <h2>Você Venceu!</h2>
                 <img src="./imagens/estrelaVitoria.gif" alt="Estrela de Vitória" class="estrela-vitoria">
                 <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
@@ -356,6 +375,8 @@ function exibirVitoria(vitoria) {
             `;
             sair.innerHTML = `<a href="config_jogo.php">Menu</a>`;
             sair.classList.add("sair");
+            // salvar partida
+            salvarDados();
 
         } else if (vitoria === 2) {
             if (modo === "tempo") {
@@ -383,8 +404,12 @@ function exibirVitoria(vitoria) {
             `;
             sair.innerHTML = `<a href="config_jogo.php">Menu</a>`;
             sair.classList.add("sair");
+            // salvar partida quando perder
+            salvarDados();
         }}, 500);
 }
+
+
 
 function obterDataAtual() {
     const hoje = new Date();
@@ -401,16 +426,59 @@ function resetarJogo() {
     location.reload();
 }
 
+// Envia os dados da partida para o servidor (salvar_partida.php)
+async function salvarDados() {
+    // Mapear dificuldade (2->1, 4->2, 6->3, 8->4)
+    let dif = dificuldade === 2 ? 'F' : dificuldade === 4 ? 'M' : dificuldade === 6 ? 'D' : 'E';
+
+    const movimentosDB = Math.floor(movimentosCount / 2);
+    const tempoTotal = typeof segundos === 'number' ? segundos : (min * 60 + sec);
+    const trapacaFlag = trapacaUsada ? 1 : 0;
+    const modoFlag = modo === 'classico' ? 1 : 2;
+
+    const payload = {
+        dificuldade: dif,
+        movimentos: movimentosDB,
+        tempo: tempoTotal,
+        trapaca: trapacaFlag,
+        modo: modoFlag
+    };
+
+    if (currentUser && currentUser.logged && currentUser.id) {
+        payload.id_usuario = currentUser.id;
+    }
+
+    const resp = await fetch('BD/salvar_partida.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+
+    if (!resp.ok) {
+        console.warn('salvarDados: resposta HTTP', resp.status);
+        return;
+    }
+
+    const j = await resp.json();
+    if (j.success) {
+        console.log('Partida salva com sucesso');
+    } else {
+        console.warn('Falha ao salvar partida:', j.message || j);
+    }
+}
+
 // Trapaça
 
 // Seleciona o checkbox
 const checkboxTrapaca = document.getElementById("meuCheckbox");
 
 let trapacaAtiva = false;
+let trapacaUsada = false;
 
 checkboxTrapaca.addEventListener("change", (e) => {
     if (e.target.checked) {
         ativarModoTrapaca();
+        trapacaUsada = true;
     } else {
         desativarModoTrapaca();
     }
@@ -465,6 +533,8 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     trapacaAtiva = false;
+    // carrega usuário da sessão (se existir)
+    loadCurrentUser();
 });
 
 // Previne o arrastar das imagens
