@@ -66,6 +66,7 @@
 
 .tabela {
   display: grid;
+  position: relative; 
   gap: 1.5vh;
   width: 90%;
   margin: 3% auto 5% auto;
@@ -130,4 +131,49 @@
 
 .derrota {
   background-color: #97141d;
+}
+
+.detalhes-partida {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  height: 30%;
+  bottom: 30%;
+  left: 40%;
+  font-size: 0.9rem;
+  padding: 10px; 
+  color: beige;
+  text-align: center;
+  background-color: var(--rosa);
+  box-shadow:
+    0 1rem 0 -0.625rem var(--rosa),
+    1rem 0 0 -0.625rem var(--rosa),
+    -1rem 0 0 -0.625rem var(--rosa),
+    0 -1rem 0 -0.625rem var(--rosa),
+    0 1rem 0 -0.3125rem beige,
+    1rem 0 0 -0.3125rem beige,
+    -1rem 0 0 -0.3125rem beige,
+    0 -1rem 0 -0.3125rem beige,  
+    0 0px 0 0.3125rem beige,
+    0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+detalhes-conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vitoria:hover{
+  background-color: rgb(60, 188, 60);
+  cursor: pointer;
+}
+
+.derrota:hover{
+  background-color: rgb(255, 60, 60);
+  cursor: pointer;
 }

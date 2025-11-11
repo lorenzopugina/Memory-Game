@@ -39,7 +39,7 @@
       </div>
 
       <?php
-        $stmt = $conn->prepare("SELECT *, DATE_FORMAT(dataPartida, '%d/%m/%Y') AS dataPartidaFormatada FROM partida WHERE id_usuario = {$_SESSION['usuario_id']} ORDER BY dataPartida DESC");
+        $stmt = $conn->prepare("SELECT *, DATE_FORMAT(dataPartida, '%d/%m/%Y %H:%i') AS dataPartidaFormatada FROM partida WHERE id_usuario = {$_SESSION['usuario_id']} ORDER BY dataPartida DESC");
         $stmt->execute();
         $partidas = $stmt->fetchAll(PDO::FETCH_ASSOC);
       ?>
