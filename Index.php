@@ -1,3 +1,5 @@
+<?php include 'BD/limpar_sessao.php'; ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -47,6 +49,5 @@
         </div>
     </main>
 </body>
-
 
 </html>
