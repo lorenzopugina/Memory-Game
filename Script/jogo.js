@@ -184,9 +184,7 @@ function verificaPecas(e) {
     const valorSegunda = getPecaValue(segundaPeca);
 
     if(trapacaAtiva === true) {
-        if(valorPrimeira === valorSegunda){
-            console.log("TRAPACA jogador ACERTOU a combinacao");
-            
+        if(valorPrimeira === valorSegunda){            
             primeiraPeca.classList.add("mesma-peca");
             segundaPeca.classList.add("mesma-peca");
 
@@ -376,7 +374,7 @@ function exibirVitoria(vitoria) {
             sair.innerHTML = `<a href="config_jogo.php">Menu</a>`;
             sair.classList.add("sair");
             // salvar partida
-            salvarDados();
+            salvarDados(true);
 
         } else if (vitoria === 2) {
             if (modo === "tempo") {
@@ -405,7 +403,7 @@ function exibirVitoria(vitoria) {
             sair.innerHTML = `<a href="config_jogo.php">Menu</a>`;
             sair.classList.add("sair");
             // salvar partida quando perder
-            salvarDados();
+            salvarDados(false);
         }}, 500);
 }
 
@@ -427,21 +425,21 @@ function resetarJogo() {
 }
 
 // Envia os dados da partida para o servidor (salvar_partida.php)
-async function salvarDados() {
-    // Mapear dificuldade (2->1, 4->2, 6->3, 8->4)
+async function salvarDados(vitoria) {
+    // Mapeei as dificuldades para os valores esperados pelo banco de dados
     let dif = dificuldade === 2 ? 'F' : dificuldade === 4 ? 'M' : dificuldade === 6 ? 'D' : 'E';
-
     const movimentosDB = Math.floor(movimentosCount / 2);
     const tempoTotal = typeof segundos === 'number' ? segundos : (min * 60 + sec);
     const trapacaFlag = trapacaUsada ? 1 : 0;
-    const modoFlag = modo === 'classico' ? 1 : 2;
+    const modoFlag = modo === 'classico' ? 'N' : 'T';
 
     const payload = {
         dificuldade: dif,
         movimentos: movimentosDB,
         tempo: tempoTotal,
         trapaca: trapacaFlag,
-        modo: modoFlag
+        modo: modoFlag,
+        venceu: vitoria ? 1 : 0
     };
 
     if (currentUser && currentUser.logged && currentUser.id) {
@@ -488,8 +486,6 @@ function ativarModoTrapaca() {
     trapacaAtiva = true;
     const pecas = document.querySelectorAll(".pecas");
 
-    console.log('trapaca:', trapacaAtiva);
-
     if (primeiraPeca) virarCarta(primeiraPeca);
     if (segundaPeca) virarCarta(segundaPeca);
     resetarSelecao();
@@ -507,8 +503,6 @@ function desativarModoTrapaca() {
     trapacaAtiva = false;
     resetarSelecao();
     const pecas = document.querySelectorAll(".pecas");
-
-    console.log('trapaca:', trapacaAtiva);
 
     pecas.forEach(peca => {
 
