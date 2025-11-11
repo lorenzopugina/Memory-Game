@@ -1,10 +1,8 @@
 <?php
-    require '../BD/conexao.php';
+    session_start();
 
-    // Limpar todas as variáveis de sessão
-    $_SESSION = array();
+    $_SESSION = [];
 
-    // Destruir a sessão
     if (ini_get("session.use_cookies")) {
         $params = session_get_cookie_params();
         setcookie(session_name(), '', time() - 42000,
@@ -14,8 +12,4 @@
     }
 
     session_destroy();
-
-    // Redirecionar para a página de login
-    header('Location: ../index.php');
-    exit;
 ?>

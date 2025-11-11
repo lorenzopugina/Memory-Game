@@ -1,4 +1,4 @@
-<?php include 'BD/limpar_sessao.php'; ?>
+<?php include 'BD/logout.php'; ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

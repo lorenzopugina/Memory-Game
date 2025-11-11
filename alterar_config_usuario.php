@@ -31,7 +31,7 @@
     <div id="subMenu_Usuario" class="subMenu">
         <ul>
         <li><a href="historico.php">Histórico</a></li>
-        <li><a href="BD/logout.php">Sair</a></li>
+        <li><a href="index.php">Sair</a></li>
         </ul>
     </div>
 

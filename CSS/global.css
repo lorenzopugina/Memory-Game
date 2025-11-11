@@ -150,6 +150,7 @@ h3, h4, h5, h6 {
 #subMenu_Usuario {
     top: 80px;
     left: 20px;
+    z-index: 1000;
 }
 
 #subMenu_Ranking {
