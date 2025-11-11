@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="CSS/global.css">
     <link rel="stylesheet" href="CSS/alterar_config_usuario.css">
-    <script defer src="Script/editar_dados.js"></script>
     <script src="Script/global.js"></script>
 </head>
 <body>
@@ -43,20 +42,27 @@
     </div>
 
     <main id="main-cadastro">
-        <form class="roxo" id="form-editar">
+        <form class="roxo" id="form-editar" method="post" action="BD/editar_usuario.php">
             <a href="config_jogo.php"><img src="imagens/return.png" alt="botão de retorno"></a>
             <h2>Editar Dados</h2>
 
+            <?php
+                // Buscar dados atuais do usuário
+                $stmt = $conn->prepare("SELECT * FROM usuarios WHERE id = :id");
+                $stmt->execute([':id' => $_SESSION['usuario_id']]);
+                $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            ?>
+
             <!-- Campos fixos (não editáveis) -->
-            <input type="text" class="bloqueado" id="username" name="username" placeholder="Apelido" readonly>
-            <input type="text" class="bloqueado" id="cpf" name="cpf" placeholder="CPF" readonly>
-            <input type="text" class="bloqueado" id="data_nascimento" name="data_nascimento" placeholder="Data de nascimento" readonly>
+            <input type="text" class="bloqueado" id="username" name="username" placeholder="<?php echo $_SESSION['usuario_username']; ?>" readonly>
+            <input type="text" class="bloqueado" id="cpf" name="cpf" placeholder="<?php echo $usuario['CPF']?>" readonly>
+            <input type="text" class="bloqueado" id="data_nascimento" name="data_nascimento" placeholder="<?php echo $usuario['dataNasc']?>" readonly>
 
             <!-- Campos editáveis -->
-            <input type="text" id="nome" name="nome" placeholder="Nome completo" required minlength="3" title="Mínimo 3 caracteres" required>
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required pattern="\d{10,11}" title="Digite no formato DDD + número">
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <input type="password" id="senha" name="senha" placeholder="Senha" required minlength="6" title="Mínimo 6 caracteres">
+            <input type="text" id="nome" name="nome" value="<?php echo $usuario['nome']?>" required minlength="3" title="Mínimo 3 caracteres" required>
+            <input type="tel" id="telefone" name="telefone" value="<?php echo $usuario['telefone']?>" required pattern="\d{10,11}" title="Digite no formato DDD + número">
+            <input type="email" id="email" name="email" value="<?php echo $usuario['email']?>" required>
+            <input type="password" id="senha" name="senha" value="<?php echo $usuario['senha']?>" required minlength="6" title="Mínimo 6 caracteres">
 
             <div class="botoes">
                 <button type="button" class="laranja-escuro" id="cancelar">Cancelar</button>
