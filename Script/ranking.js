@@ -6,18 +6,18 @@ function exibirRanking(partidas, modo, usuarios) {
     let contador = 1;
     partidas.forEach(element => {
         if (modo === "facil")
-            if (element['dificuldade']=='F' && element['venceu'] == true)
+            if (element['dificuldade']=='F' && element['venceu'] == true && element['trapaca'] == false)
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "medio")
-            if (element['dificuldade']=='M' && element['venceu'] == true)
+            if (element['dificuldade']=='M' && element['venceu'] == true && element['trapaca'] == false)
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "dificil")
-            if (element['dificuldade']=='D' && element['venceu'] == true)
+            if (element['dificuldade']=='D' && element['venceu'] == true && element['trapaca'] == false)
                 criarLinhaRanking(element, usuarios, contador++);
         if (modo === "extremo")
-            if (element['dificuldade']=='E' && element['venceu'] == true)
+            if (element['dificuldade']=='E' && element['venceu'] == true && element['trapaca'] == false)
                 criarLinhaRanking(element, usuarios, contador++);
-        if (modo === "todas" && element['venceu'] == true)
+        if (modo === "todas" && element['venceu'] == true && element['trapaca'] == false)
             criarLinhaRanking(element, usuarios, contador++);
     });
 }

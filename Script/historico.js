@@ -17,6 +17,10 @@ function criarLinhaHistorico(element) {
         linha.classList.add("derrota");
     }
 
+    if (element['trapaca']) {
+        linha.classList.add("trapaca");
+    }
+
     linha.innerHTML = `
         <div>${element['dataPartidaFormatada']}</div>
         <div>${element['modo']=='N'? 'Clássico' : 'Contra o Tempo'}</div>
@@ -50,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Tempo: ${linha.children[2].textContent}</p>
                 <p>Movimentos: ${linha.children[3].textContent}</p>
                 <p>Dificuldade: ${linha.children[4].textContent}</p>
+                <p>Trapaceou? ${linha.classList.contains("trapaca") ? "Sim" : "Não"}</p>
                 <p>Resultado: ${linha.classList.contains("vitoria") ? "Vitória" : "Derrota"}</p>
             </div>
         <button onclick="this.parentElement.remove()">Fechar</button>
