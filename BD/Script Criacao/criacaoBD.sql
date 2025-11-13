@@ -30,10 +30,6 @@ CREATE TABLE partida (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 );
 
-
-
---Inserts para base
-
 INSERT INTO usuarios (nome, dataNasc, CPF, telefone, email, apelido, senha)
 VALUES 
 ('Bernaros Mendes', '2000-05-15', '12345678901', '(11) 99999-0001', 'bernardo@mail.com', 'bernas', 'senha123'),
@@ -42,13 +38,21 @@ VALUES
 ('Juliana Costa', '1999-07-30', '45678901234', '(41) 96666-0004', 'juliana@mail.com', 'ju_c', 'ju99pass'),
 ('Felipe Torres', '2002-12-12', '56789012345', '(51) 95555-0005', 'felipe@mail.com', 'felipet', 'ftorres#12');
 
-
 INSERT INTO partida (id_usuario, dificuldade, movimentos, tempo, trapaca, modo, venceu)
 VALUES
 (1, 'F', 85, 300, FALSE, 'N', TRUE),
 (2, 'M', 120, 480, FALSE, 'T', FALSE),
-(3, 'D', 60, 250, TRUE, 'N', FALSE),
+(3, 'D', 160, 250, FALSE, 'N', TRUE),
 (4, 'F', 90, 360, FALSE, 'T', TRUE),
-(5, 'M', 110, 400, TRUE, 'N', TRUE);
-
+(5, 'M', 110, 400, FALSE, 'N', TRUE),
+(1, 'M', 95, 340, FALSE, 'T', FALSE),
+(2, 'D', 170, 310, TRUE, 'N', TRUE),
+(3, 'F', 80, 290, FALSE, 'T', TRUE),
+(4, 'M', 105, 430, FALSE, 'N', FALSE),
+(5, 'E', 165, 280, TRUE, 'T', TRUE),
+(1, 'D', 75, 310, FALSE, 'N', TRUE),
+(2, 'F', 88, 295, FALSE, 'T', TRUE),
+(3, 'M', 100, 370, FALSE, 'N', TRUE),
+(4, 'D', 70, 320, FALSE, 'T', TRUE),
+(5, 'E', 192, 350, FALSE, 'N', TRUE);
 
