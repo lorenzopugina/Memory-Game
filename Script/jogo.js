@@ -365,7 +365,7 @@ function exibirVitoria(vitoria) {
                 <h2>Você Venceu!</h2>
                 <img src="./imagens/estrelaVitoria.gif" alt="Estrela de Vitória" class="estrela-vitoria">
                 <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
-                <br>Movimentos: ${movimentosCount}
+                <br>Movimentos: ${Math.floor(movimentosCount / 2)}
                 <br>Modo: ${tituloModo.textContent}
                 <br>Dificuldade: ${dificuldade_texto}
                 <br>Data: ${obterDataAtual()}</p>
@@ -394,7 +394,7 @@ function exibirVitoria(vitoria) {
                 <h2>Você Perdeu</h2>
                 <img src="./imagens/triste.gif" alt="Cara Triste" class="triste-derrota">
                 <p>Tempo: ${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
-                <br>Movimentos: ${movimentosCount}
+                <br>Movimentos: ${Math.floor(movimentosCount / 2)}
                 <br>Modo: ${tituloModo.textContent}
                 <br>Dificuldade: ${dificuldade_texto}
                 <br>Data: ${obterDataAtual()}</p>
