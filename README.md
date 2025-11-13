@@ -2,7 +2,7 @@
 
 Este projeto faz parte da entrega da disciplina **SI401A**.  
 
-📺 Vídeo de apresentação:  
-[https://youtu.be/EL-Il1dCsi4?si=nz_3IdDeYZg_5CdV](https://youtu.be/EL-Il1dCsi4?si=nz_3IdDeYZg_5CdV)
+📺 Vídeo de apresentação da entrega parcial 3:  
+[https://drive.google.com/file/d/1GWCOR4esrm1HONup3jEzP1tcGSauM6op/view]
 
 
